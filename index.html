@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PandaGPT</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+  </style>
+</head>
+<body class="dark flex flex-col min-h-screen">
+  <header class="fixed top-0 left-0 w-full z-50 backdrop-blur border-b border-zinc-200 dark:border-zinc-600">
+    <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-2xl flex items-center justify-between gap-3">
+      <div class="lg:flex-1 flex items-center gap-1.5">
+        <a class="flex-shrink-0 font-bold text-xl flex items-end gap-1.5">
+          <div class="flex items-baseline">
+            <span class="text-[16px] md:text-2xl md:tracking-widest font-medium subpixel-antialiased">
+              PandaGPT
+            </span>
+            <small class="ms-2 hidden md:block text-xs" style="color: #6b7280;">v?.?.?</small>
+          </div>
+        </a>
+      </div>
+      <nav class="p-4 flex justify-end items-center">
+        <div class="flex space-x-4 pr-8 font-medium">
+          <a href="#" class="text-gray-400 pointer-events-none cursor-not-allowed">Chat</a>
+          <a href="#" class="text-gray-400 pointer-events-none cursor-not-allowed">Database</a>
+        </div>
+        <div class="flex items-center gap-2">
+          <input type="checkbox" id="light-switch" class="light-switch sr-only" />
+          <label class="relative cursor-pointer p-2" for="light-switch">
+            <svg class="dark:hidden" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+              <path class="fill-zinc-600" d="M7 0h2v2H7zM12.88 1.637l1.414 1.415-1.415 1.413-1.413-1.414zM14 7h2v2h-2zM12.95 14.433l-1.414-1.413 1.413-1.415 1.415 1.414zM7 14h2v2H7zM2.98 14.364l-1.413-1.415 1.414-1.414 1.414 1.415zM0 7h2v2H0zM3.05 1.706 4.463 3.12 3.05 4.535 1.636 3.12z"/>
+              <path class="fill-zinc-700" d="M8 4C5.8 4 4 5.8 4 8s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4Z"/>
+            </svg>
+            <svg class="hidden dark:block" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+              <path class="fill-zinc-400" d="M6.2 1C3.2 1.8 1 4.6 1 7.9 1 11.8 4.2 15 8.1 15c3.3 0 6-2.2 6.9-5.2C9.7 11.2 4.8 6.3 6.2 1Z"/>
+              <path class="fill-zinc-500" d="M12.5 5a.625.625 0 0 1-.625-.625 1.252  1.252 0 0 0-1.25-1.25.625.625 0 1 1 0-1.25 1.252 1.252 0 0 0 1.25-1.25.625.625 0 1 1 1.25 0c.001.69.56 1.249 1.25 1.25a.625.625 0 1 1 0 1.25c-.69.001-1.249.56-1.25 1.25A.625.625 0 0 1 12.5 5Z"/>
+            </svg>
+            <span class="sr-only">Switch to light / dark version</span>
+          </label>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="flex-grow flex flex-col items-center justify-center">
+    <h1 class="text-4xl font-bold">PandaGPT</h1>
+    <p class="text-lg text-gray-500 mt-2">Coming Soon ...</p>
+  </main>
+
+  <footer class="w-full z-50 backdrop-blur border-t border-zinc-200 dark:border-zinc-600">
+    <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-2xl flex justify-between items-center">
+      <span class="font-normal">Copyright &copy; 2025</span>
+      <nav class="p-4 flex justify-end items-center">
+          <a href="mailto:sherpig@interface-eu.org" class="hover:underline underline-offset-4 font-normal px-4">
+          Contact
+        </a>
+        <a href="https://www.interface-eu.org/legal-notice" class="hover:underline underline-offset-4 font-normal px-4">
+          Legal Notice
+        </a>
+        <a href="https://www.interface-eu.org/privacy-policy" class="hover:underline underline-offset-4 font-normal">
+          Privacy Policy
+        </a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
