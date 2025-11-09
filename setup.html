@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PandaGPT - Setup Guide</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    }
+    .step-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background: #18181b;
+      color: white;
+      font-weight: 600;
+      font-size: 1.125rem;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen bg-white text-zinc-900">
+  <header class="fixed top-0 left-0 w-full z-50 bg-white border-b border-zinc-200">
+    <div class="mx-auto px-6 lg:px-8 max-w-6xl">
+      <div class="flex items-center justify-between h-16">
+        <a href="../index.html" class="font-semibold text-lg text-zinc-900 hover:text-blue-600 transition-colors">
+          PandaGPT
+        </a>
+        <nav class="flex gap-8 text-sm">
+          <a href="#" class="text-zinc-400 pointer-events-none cursor-not-allowed">Chat</a>
+          <a href="#" class="text-zinc-400 pointer-events-none cursor-not-allowed">Database</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow pt-32 pb-24 px-6 lg:px-8">
+    <div class="mx-auto max-w-3xl">
+      <div class="mb-8">
+        <h1 class="text-3xl md:text-4xl font-light mb-4 text-zinc-900">Setup Guide</h1>
+        <p class="text-lg text-zinc-600 font-light mb-4">PandaGPT is currently running on non-public infrastructure that can only be accessed through a VPN connection. Follow these steps to connect to PandaGPT</p>
+      </div>
+
+      <!-- Info Note -->
+      <div class="mb-12 bg-blue-50/50 border-l-4 border-blue-500 py-6 pr-6 pl-[60px]">
+        <p class="text-sm text-zinc-700 leading-relaxed">
+          <strong class="text-blue-900">Privacy Notice:</strong> This VPN uses a split-tunnel configuration. Only traffic to <code class="bg-blue-100 px-2 py-0.5 text-sm font-mono text-blue-900">pandagpt.org</code> is routed through the VPN tunnel. All other internet traffic remains on your regular connection and is not affected.
+        </p>
+      </div>
+
+      <div class="space-y-12">
+        <!-- Step 1 -->
+        <div class="pb-12 border-b border-zinc-200">
+          <div class="flex items-start gap-6">
+            <div class="step-number">1</div>
+            <div class="flex-1">
+              <h2 class="text-xl font-semibold mb-4 text-zinc-900">Download OpenVPN Client</h2>
+              <p class="text-zinc-600 mb-6 leading-relaxed">
+                First, you need to install the OpenVPN Connect client on your device.
+              </p>
+              <div class="space-y-6">
+                <div>
+                  <h3 class="font-medium mb-3 text-zinc-900">For Windows & macOS</h3>
+                  <a href="https://openvpn.net/client/" target="_blank" rel="noopener noreferrer" 
+                     class="inline-flex items-center gap-2 bg-zinc-900 hover:bg-zinc-700 text-white font-medium py-2.5 px-5 transition-colors text-sm">
+                    <span>Download OpenVPN Connect</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+                      <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
+                    </svg>
+                  </a>
+                </div>
+                <div>
+                  <h3 class="font-medium mb-3 text-zinc-900">For Linux</h3>
+                  <code class="block bg-zinc-50 text-zinc-900 p-4 text-sm overflow-x-auto font-mono border-l-2 border-zinc-300">
+                    sudo apt-get install openvpn
+                  </code>
+                  <p class="text-sm text-zinc-500 mt-2">Or use your distribution's package manager</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="pb-12 border-b border-zinc-200">
+          <div class="flex items-start gap-6">
+            <div class="step-number">2</div>
+            <div class="flex-1">
+              <h2 class="text-xl font-semibold mb-4 text-zinc-900">Install Your VPN Profiles</h2>
+              <p class="text-zinc-600 mb-6 leading-relaxed">
+                You should have received <strong>two</strong> OpenVPN configuration files (<code class="bg-zinc-50 px-2 py-0.5 text-sm font-mono">.ovpn</code>) via email: one for UDP and one for TCP.
+              </p>
+              <div class="space-y-6">
+                <div>
+                  <h3 class="font-medium mb-3 text-zinc-900">Check Your Email</h3>
+                  <p class="text-zinc-600 leading-relaxed">Look for an email with the subject containing "PandaGPT Access"</p>
+                </div>
+                <div>
+                  <h3 class="font-medium mb-3 text-zinc-900">Import Both Profiles</h3>
+                  <ul class="space-y-3 text-zinc-600 leading-relaxed">
+                    <li class="flex gap-2"><span class="text-zinc-400">•</span><span>Open OpenVPN Connect</span></li>
+                    <li class="flex gap-2"><span class="text-zinc-400">•</span><span>Click on "Import Profile" or drag and drop the first <code class="bg-zinc-50 px-2 py-0.5 text-sm font-mono">.ovpn</code> file (UDP)</span></li>
+                    <li class="flex gap-2"><span class="text-zinc-400">•</span><span>Rename the profile to <code class="bg-zinc-50 px-2 py-0.5 text-sm font-mono text-zinc-900">panda-internal-test-udp</code></span></li>
+                    <li class="flex gap-2"><span class="text-zinc-400">•</span><span>Repeat the process with the second <code class="bg-zinc-50 px-2 py-0.5 text-sm font-mono">.ovpn</code> file (TCP)</span></li>
+                    <li class="flex gap-2"><span class="text-zinc-400">•</span><span>Rename the profile to <code class="bg-zinc-50 px-2 py-0.5 text-sm font-mono text-zinc-900">panda-internal-test-tcp</code></span></li>
+                  </ul>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="pb-12 border-b border-zinc-200">
+          <div class="flex items-start gap-6">
+            <div class="step-number">3</div>
+            <div class="flex-1">
+              <h2 class="text-xl font-semibold mb-4 text-zinc-900">Connect to VPN</h2>
+              <p class="text-zinc-600 mb-6 leading-relaxed">
+                Connect to the VPN to access PandaGPT.
+              </p>
+              <ul class="space-y-3 text-zinc-600 leading-relaxed">
+                <li class="flex gap-2"><span class="text-zinc-400">•</span><span>Open OpenVPN Connect</span></li>
+                <li class="flex gap-2"><span class="text-zinc-400">•</span><span>Find your imported <code class="bg-zinc-50 px-2 py-0.5 text-sm font-mono text-zinc-900">panda-internal-test-udp</code> profile</span></li>
+                <li class="flex gap-2"><span class="text-zinc-400">•</span><span>Click the toggle/connect button</span></li>
+                <li class="flex gap-2"><span class="text-zinc-400">•</span><span>Wait for the connection to establish (status should show "Connected")</span></li>
+                <li class="flex gap-2"><span class="text-zinc-400">•</span><span>If connection fails, try the <code class="bg-zinc-50 px-2 py-0.5 text-sm font-mono text-zinc-900">panda-internal-test-tcp</code> profile instead</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="pb-12 border-b border-zinc-200">
+          <div class="flex items-start gap-6">
+            <div class="step-number">4</div>
+            <div class="flex-1">
+              <h2 class="text-xl font-semibold mb-4 text-zinc-900">Access PandaGPT</h2>
+              <p class="text-zinc-600 mb-6 leading-relaxed">
+                Once connected, you can access the PandaGPT application.
+              </p>
+              <p class="text-zinc-600 leading-relaxed">Open your web browser and navigate to: <a href="https://test.pandagpt.org" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-blue-600 hover:text-blue-700 underline underline-offset-2 font-medium">
+                <span>https://test.pandagpt.org</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+                  <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
+                </svg>
+              </a></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Troubleshooting -->
+        <div class="pb-12 bg-amber-50/50 border-l-4 border-amber-500 py-6 pr-6 pl-[60px]">
+          <h2 class="text-xl font-semibold mb-6 text-amber-900">Troubleshooting</h2>
+          <div class="space-y-6">
+            <div>
+              <h3 class="font-medium mb-2 text-amber-900">VPN won't connect?</h3>
+              <p class="text-zinc-700 leading-relaxed">Make sure you have an active internet connection and that no firewall is blocking OpenVPN. <strong class="text-amber-900">Try switching between UDP and TCP profiles</strong> – some networks (especially corporate or public WiFi) work better with TCP.</p>
+            </div>
+            <div>
+              <h3 class="font-medium mb-2 text-amber-900">Can't access test.pandagpt.org?</h3>
+              <p class="text-zinc-700 leading-relaxed">Verify that your VPN connection is active (check OpenVPN Connect status). Try refreshing the page or clearing your browser cache. If the domain still doesn't work, try accessing the application directly via IP address: <a href="http://10.0.2.188" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-blue-600 hover:text-blue-700 underline underline-offset-2 font-medium"><span>10.0.2.188</span></a> or <a href="http://10.0.2.227" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-blue-600 hover:text-blue-700 underline underline-offset-2 font-medium"><span>10.0.2.227</span></a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-16 pt-12 border-t border-zinc-200">
+        <p class="text-zinc-600 text-sm">
+          Need help? Contact us at <a href="mailto:panda_admin@interface-eu.org" class="text-blue-600 hover:text-blue-700 underline underline-offset-2 font-medium">panda_admin@interface-eu.org</a>
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="w-full bg-white border-t border-zinc-200 py-8">
+    <div class="mx-auto px-6 lg:px-8 max-w-6xl">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-sm text-zinc-600">
+        <span>&copy; 2025 interface</span>
+        <nav class="flex gap-6">
+          <a href="mailto:panda_admin@interface-eu.org" class="hover:text-blue-600 transition-colors">
+            Contact
+          </a>
+          <a href="https://www.interface-eu.org/legal-notice" class="inline-flex items-center gap-1.5 hover:text-blue-600 transition-colors">
+            <span>Legal Notice</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+              <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
+            </svg>
+          </a>
+          <a href="https://www.interface-eu.org/privacy-policy" class="inline-flex items-center gap-1.5 hover:text-blue-600 transition-colors">
+            <span>Privacy Policy</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+              <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
+            </svg>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+
