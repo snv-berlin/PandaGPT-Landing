@@ -4,23 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PandaGPT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     html, body {
       height: 100%;
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
     }
   </style>
 </head>
 <body class="flex flex-col min-h-screen bg-white text-zinc-900">
-  <header class="fixed top-0 left-0 w-full z-50 bg-white border-b border-zinc-200">
-    <div class="mx-auto px-6 lg:px-8 max-w-6xl">
+  <header class="fixed top-0 left-0 w-full z-50 bg-white backdrop-blur border-b border-zinc-200">
+    <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-2xl">
       <div class="flex items-center justify-between h-16">
-        <a href="index.html" class="font-semibold text-lg text-zinc-900 hover:text-blue-600 transition-colors">
+        <a href="index.html" class="text-[16px] md:text-2xl md:tracking-widest font-medium subpixel-antialiased text-zinc-900 hover:text-blue-600 transition-colors">
           PandaGPT
         </a>
-        <nav class="flex gap-8 text-sm">
+        <nav class="flex gap-4 md:gap-8 text-sm font-medium">
           <a href="#" class="text-zinc-400 pointer-events-none cursor-not-allowed">Chat</a>
           <a href="#" class="text-zinc-400 pointer-events-none cursor-not-allowed">Database</a>
         </nav>
@@ -28,39 +32,31 @@
     </div>
   </header>
 
-  <main class="flex-grow flex flex-col items-center justify-center px-6 py-24">
+  <main class="flex-grow flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-24">
     <div class="max-w-3xl text-center">
       <h1 class="text-4xl md:text-5xl font-light mb-6 text-zinc-900">PandaGPT</h1>
       <p class="text-xl text-zinc-500 font-light mb-8">
         Coming Soon
       </p>
-      <a href="mailto:panda_admin@interface-eu.org" class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium py-3 px-6 transition-colors text-base">
+      <a href="mailto:panda_admin@interface-eu.org" class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 hover:underline underline-offset-4 font-medium py-3 px-6 transition-colors text-base">
         <span>Contact Us</span>
       </a>
     </div>
   </main>
 
-  <footer class="w-full bg-white border-t border-zinc-200 py-8">
-    <div class="mx-auto px-6 lg:px-8 max-w-6xl">
-      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-sm text-zinc-600">
-        <span>&copy; 2025 interface</span>
-        <nav class="flex gap-6">
-          <a href="mailto:panda_admin@interface-eu.org" class="hover:text-blue-600 transition-colors">
+  <footer class="w-full bg-white backdrop-blur mt-24 border-t border-zinc-200">
+    <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-2xl">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 py-4 text-sm text-zinc-900">
+        <span class="font-normal">Copyright &copy; 2025</span>
+        <nav class="flex gap-4 md:gap-6 font-normal">
+          <a href="mailto:panda_admin@interface-eu.org" class="hover:underline underline-offset-4">
             Contact
           </a>
-          <a href="https://www.interface-eu.org/legal-notice" class="inline-flex items-center gap-1.5 hover:text-blue-600 transition-colors">
-            <span>Legal Notice</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
-              <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
-            </svg>
+          <a href="https://www.interface-eu.org/legal-notice" class="hover:underline underline-offset-4">
+            Legal Notice
           </a>
-          <a href="https://www.interface-eu.org/privacy-policy" class="inline-flex items-center gap-1.5 hover:text-blue-600 transition-colors">
-            <span>Privacy Policy</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
-              <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
-            </svg>
+          <a href="https://www.interface-eu.org/privacy-policy" class="hover:underline underline-offset-4">
+            Privacy Policy
           </a>
         </nav>
       </div>
