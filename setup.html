@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="html-root">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +8,160 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Translation object
+    const translations = {
+      en: {
+        'nav.chat': 'Chat',
+        'nav.database': 'Database',
+        'title': 'PandaGPT - Setup Guide',
+        'setup.title': 'Setup Guide',
+        'setup.intro': 'PandaGPT is currently running on non-public infrastructure that can only be accessed through a VPN connection. Follow these steps to connect to PandaGPT',
+        'privacy.title': 'Privacy Notice:',
+        'privacy.text': 'This VPN uses a split-tunnel configuration. Only traffic to subdomains of',
+        'privacy.text2': 'is routed through the VPN. All other traffic uses your regular connection.',
+        'step1.title': 'Download AWS Client VPN',
+        'step1.text': 'Install the AWS Client VPN client on your device.',
+        'step1.button': 'Download AWS Client VPN',
+        'step1.note': 'Select the appropriate version for your operating system (Windows, macOS, or Linux)',
+        'step2.title': 'Import and Name Your VPN Profiles',
+        'step2.text': 'You should have received two OpenVPN configuration files',
+        'step2.text2': 'via email with the subject "PandaGPT Prototype Access":',
+        'step2.text3': 'and',
+        'step2.step1': 'Save both profile files from the email to your computer',
+        'step2.step2': 'Open AWS Client VPN and go to',
+        'step2.step2b': 'File → Manage Profiles → Add Profiles',
+        'step2.step2c': 'This will open a popup window',
+        'step2.step3': 'In the popup, click "Select File" and choose the first file',
+        'step2.step3b': 'Enter the Display Name:',
+        'step2.step3c': 'and click "Add"',
+        'step2.step4': 'Repeat steps 2-3 for the second file',
+        'step2.step4b': ', using Display Name:',
+        'step2.note': 'UDP is faster and works on most networks. TCP is more reliable and may work better on restrictive networks (corporate or public WiFi) where UDP is blocked.',
+        'step3.title': 'Connect to VPN',
+        'step3.text': 'In AWS Client VPN, find your',
+        'step3.text2': 'profile, and click the',
+        'step3.text3': 'button. Wait for the status to show "Connected". If the connection fails, try the',
+        'step3.text4': 'profile instead.',
+        'step4.title': 'Access PandaGPT',
+        'step4.text': 'Once connected, you can access the PandaGPT application.',
+        'step4.text2': 'Open your web browser and navigate to:',
+        'troubleshooting.title': 'Troubleshooting',
+        'troubleshooting.q1': 'VPN won\'t connect?',
+        'troubleshooting.a1': 'Make sure you have an active internet connection and no firewall is blocking AWS Client VPN. Try switching between UDP and TCP profiles – some networks work better with TCP.',
+        'troubleshooting.q2': 'Can\'t access test.pandagpt.org?',
+        'troubleshooting.a2': 'Verify your VPN is active in AWS Client VPN. Try refreshing the page, clearing your browser cache, or switching to a different browser.',
+        'help.text': 'Need help? Contact us at',
+        'footer.copyright': 'Copyright',
+        'footer.contact': 'Contact',
+        'footer.legal': 'Legal Notice',
+        'footer.privacy': 'Privacy Policy'
+      },
+      de: {
+        'nav.chat': 'Chat',
+        'nav.database': 'Datenbank',
+        'title': 'PandaGPT - Einrichtungsanleitung',
+        'setup.title': 'Einrichtungsanleitung',
+        'setup.intro': 'PandaGPT läuft derzeit auf nicht-öffentlicher Infrastruktur, die nur über eine VPN-Verbindung erreichbar ist. Befolgen Sie diese Schritte, um sich mit PandaGPT zu verbinden',
+        'privacy.title': 'Datenschutzhinweis:',
+        'privacy.text': 'Dieser VPN verwendet eine Split-Tunnel-Konfiguration. Nur Datenverkehr zu Unterdomänen von',
+        'privacy.text2': 'wird über den VPN geleitet. Ihr gesamter andere Datenverkehr nutzt Ihre reguläre Verbindung.',
+        'step1.title': 'AWS Client VPN herunterladen',
+        'step1.text': 'Installieren Sie den AWS Client VPN-Client auf Ihrem Gerät.',
+        'step1.button': 'AWS Client VPN herunterladen',
+        'step1.note': 'Wählen Sie die passende Version für Ihr Betriebssystem (Windows, macOS oder Linux)',
+        'step2.title': 'VPN-Profile importieren und benennen',
+        'step2.text': 'Sie sollten zwei OpenVPN-Konfigurationsdateien',
+        'step2.text2': 'per E-Mail mit dem Betreff "PandaGPT Prototype Access" erhalten haben:',
+        'step2.text3': 'und',
+        'step2.step1': 'Speichern Sie beide Profildateien aus der E-Mail auf Ihrem Computer',
+        'step2.step2': 'Öffnen Sie AWS Client VPN und gehen Sie zu',
+        'step2.step2b': 'Datei → Profile verwalten → Profile hinzufügen',
+        'step2.step2c': 'Dies öffnet ein Popup-Fenster',
+        'step2.step3': 'Klicken Sie im Popup auf "Datei auswählen" und wählen Sie die erste Datei',
+        'step2.step3b': 'Geben Sie den Anzeigenamen ein:',
+        'step2.step3c': 'und klicken Sie auf "Hinzufügen"',
+        'step2.step4': 'Wiederholen Sie die Schritte 2-3 für die zweite Datei',
+        'step2.step4b': ' verwenden Sie den Anzeigenamen:',
+        'step2.note': 'UDP ist schneller und funktioniert in den meisten Netzwerken. TCP ist zuverlässiger und funktioniert möglicherweise besser in restriktiven Netzwerken (Firmen- oder öffentliches WLAN), in denen UDP blockiert ist.',
+        'step3.title': 'Mit VPN verbinden',
+        'step3.text': 'Suchen Sie in AWS Client VPN Ihr',
+        'step3.text2': 'Profil und klicken Sie auf die Schaltfläche',
+        'step3.text3': '. Warten Sie, bis der Status "Verbunden" anzeigt. Wenn die Verbindung fehlschlägt, versuchen Sie stattdessen das',
+        'step3.text4': 'Profil.',
+        'step4.title': 'Auf PandaGPT zugreifen',
+        'step4.text': 'Sobald Sie verbunden sind, können Sie auf die PandaGPT-Anwendung zugreifen.',
+        'step4.text2': 'Öffnen Sie Ihren Webbrowser und navigieren Sie zu:',
+        'troubleshooting.title': 'Fehlerbehebung',
+        'troubleshooting.q1': 'VPN-Verbindung schlägt fehl?',
+        'troubleshooting.a1': 'Stellen Sie sicher, dass Sie eine aktive Internetverbindung haben und keine Firewall AWS Client VPN blockiert. Versuchen Sie, zwischen UDP- und TCP-Profilen zu wechseln – einige Netzwerke funktionieren besser mit TCP.',
+        'troubleshooting.q2': 'Zugriff auf test.pandagpt.org schlägt fehl?',
+        'troubleshooting.a2': 'Überprüfen Sie, ob Ihr VPN in AWS Client VPN aktiv ist. Versuchen Sie, die Seite zu aktualisieren, den Browser-Cache zu löschen oder zu einem anderen Browser zu wechseln.',
+        'help.text': 'Benötigen Sie Hilfe? Kontaktieren Sie uns unter',
+        'footer.copyright': 'Copyright',
+        'footer.contact': 'Kontakt',
+        'footer.legal': 'Impressum',
+        'footer.privacy': 'Datenschutz'
+      }
+    };
+
+    // Get current locale from localStorage or default to 'en'
+    function getLocale() {
+      return localStorage.getItem('locale') || 'en';
+    }
+
+    // Set locale
+    function setLocale(locale) {
+      localStorage.setItem('locale', locale);
+      const htmlRoot = document.getElementById('html-root') || document.documentElement;
+      htmlRoot.lang = locale;
+      updateTranslations();
+    }
+
+    // Update all translations on the page
+    function updateTranslations() {
+      const locale = getLocale();
+      const t = translations[locale] || translations.en;
+
+      // Update all elements with data-i18n attribute
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key]) {
+          el.textContent = t[key];
+        }
+      });
+
+      // Update elements with data-i18n-html (for HTML content)
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        if (t[key]) {
+          el.innerHTML = t[key];
+        }
+      });
+
+      // Update title
+      document.title = t['title'];
+
+      // Update language switcher active state
+      document.querySelectorAll('.lang-switcher-btn').forEach(btn => {
+        if (btn.dataset.lang === locale) {
+          btn.classList.remove('text-zinc-400', 'hover:underline');
+          btn.classList.add('text-zinc-900');
+        } else {
+          btn.classList.add('text-zinc-400', 'hover:underline');
+          btn.classList.remove('text-zinc-900');
+        }
+      });
+    }
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      const locale = getLocale();
+      const htmlRoot = document.getElementById('html-root') || document.documentElement;
+      htmlRoot.lang = locale;
+      updateTranslations();
+    });
+  </script>
   <style>
     html, body {
       height: 100%;
@@ -36,9 +190,25 @@
         <a href="../index.html" class="text-[16px] md:text-2xl md:tracking-widest font-medium subpixel-antialiased text-zinc-900 hover:text-blue-600 transition-colors">
           PandaGPT
         </a>
-        <nav class="flex gap-4 md:gap-8 text-sm font-medium">
-          <a href="#" class="text-zinc-400 pointer-events-none cursor-not-allowed">Chat</a>
-          <a href="#" class="text-zinc-400 pointer-events-none cursor-not-allowed">Database</a>
+        <nav class="flex gap-4 md:gap-8 text-sm font-medium items-center">
+          <a href="#" class="text-zinc-400 pointer-events-none cursor-not-allowed" data-i18n="nav.chat">Chat</a>
+          <a href="#" class="text-zinc-400 pointer-events-none cursor-not-allowed" data-i18n="nav.database">Database</a>
+          <div class="flex space-x-2 font-medium">
+            <button
+              class="lang-switcher-btn px-2 py-1 rounded text-zinc-900"
+              data-lang="en"
+              onclick="setLocale('en')"
+            >
+              EN
+            </button>
+            <button
+              class="lang-switcher-btn px-2 py-1 rounded text-zinc-400 hover:underline"
+              data-lang="de"
+              onclick="setLocale('de')"
+            >
+              DE
+            </button>
+          </div>
         </nav>
       </div>
     </div>
@@ -48,14 +218,14 @@
     <div class="mx-auto max-w-screen-2xl">
       <div class="max-w-3xl mx-auto">
       <div class="mb-8">
-        <h1 class="text-3xl md:text-4xl font-light mb-4 text-zinc-900">Setup Guide</h1>
-        <p class="text-lg text-zinc-600 font-light mb-4">PandaGPT is currently running on non-public infrastructure that can only be accessed through a VPN connection. Follow these steps to connect to PandaGPT</p>
+        <h1 class="text-3xl md:text-4xl font-light mb-4 text-zinc-900" data-i18n="setup.title">Setup Guide</h1>
+        <p class="text-lg text-zinc-600 font-light mb-4" data-i18n="setup.intro">PandaGPT is currently running on non-public infrastructure that can only be accessed through a VPN connection. Follow these steps to connect to PandaGPT</p>
       </div>
 
       <!-- Info Note -->
       <div class="mb-12 bg-blue-50/30 border-l-2 border-blue-400 py-4 px-4">
         <p class="text-sm text-zinc-600 leading-relaxed">
-          <span class="text-blue-900 font-medium">Privacy Notice:</span> This VPN uses a split-tunnel configuration. Only traffic to <code class="bg-white px-1.5 py-0.5 text-xs font-mono">pandagpt.org</code> is routed through the VPN. All other traffic uses your regular connection.
+          <span class="text-blue-900 font-medium" data-i18n="privacy.title">Privacy Notice:</span> <span data-i18n="privacy.text">This VPN uses a split-tunnel configuration. Only traffic to subdomains of</span> <code class="bg-white px-1.5 py-0.5 text-xs font-mono">pandagpt.org</code> <span data-i18n="privacy.text2">is routed through the VPN. All other traffic uses your regular connection.</span>
         </p>
       </div>
 
@@ -65,29 +235,19 @@
           <div class="flex items-start gap-6">
             <div class="step-number">1</div>
             <div class="flex-1">
-              <h2 class="text-xl font-semibold mb-4 text-zinc-900">Download OpenVPN Client</h2>
-              <p class="text-zinc-600 mb-6 leading-relaxed">
-                Install the OpenVPN Connect client on your device.
+              <h2 class="text-xl font-semibold mb-4 text-zinc-900" data-i18n="step1.title">Download AWS Client VPN</h2>
+              <p class="text-zinc-600 mb-6 leading-relaxed" data-i18n="step1.text">
+                Install the AWS Client VPN client on your device.
               </p>
-              <div class="space-y-5">
-                <div>
-                  <p class="text-sm text-zinc-500 mb-3">Windows & macOS</p>
-                  <a href="https://openvpn.net/client/" target="_blank" rel="noopener noreferrer" 
-                     class="inline-flex items-center gap-2 bg-zinc-900 hover:bg-zinc-700 text-white font-medium py-2.5 px-5 transition-colors text-sm">
-                    <span>Download OpenVPN Connect</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
-                      <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
-                      <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
-                    </svg>
-                  </a>
-                </div>
-                <div>
-                  <p class="text-sm text-zinc-500 mb-3">Linux</p>
-                  <code class="block bg-zinc-50 text-zinc-900 p-3 text-sm overflow-x-auto font-mono border-l-2 border-zinc-300">
-sudo apt-get install openvpn</code>
-                  <p class="text-xs text-zinc-400 mt-2">Or use your distribution's package manager</p>
-                </div>
-              </div>
+              <a href="https://aws.amazon.com/de/vpn/client-vpn-download/" target="_blank" rel="noopener noreferrer" 
+                 class="inline-flex items-center gap-2 bg-zinc-900 hover:bg-zinc-700 text-white font-medium py-2.5 px-5 transition-colors text-sm">
+                <span data-i18n="step1.button">Download AWS Client VPN</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+                  <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
+                </svg>
+              </a>
+              <p class="text-xs text-zinc-400 mt-2" data-i18n="step1.note">Select the appropriate version for your operating system (Windows, macOS, or Linux)</p>
             </div>
           </div>
         </div>
@@ -97,16 +257,29 @@ sudo apt-get install openvpn</code>
           <div class="flex items-start gap-6">
             <div class="step-number">2</div>
             <div class="flex-1">
-              <h2 class="text-xl font-semibold mb-4 text-zinc-900">Install Your VPN Profiles</h2>
+              <h2 class="text-xl font-semibold mb-4 text-zinc-900" data-i18n="step2.title">Import and Name Your VPN Profiles</h2>
               <p class="text-zinc-600 mb-6 leading-relaxed">
-                You should have received two OpenVPN configuration files (<code class="bg-zinc-50 px-1.5 py-0.5 text-sm font-mono">.ovpn</code>) via email with the subject "PandaGPT Prototype Access": <code class="bg-zinc-50 px-1.5 py-0.5 text-sm font-mono">panda-internal-test-udp.ovpn</code> and <code class="bg-zinc-50 px-1.5 py-0.5 text-sm font-mono">panda-internal-test-tcp.ovpn</code>
+                <span data-i18n="step2.text">You should have received two OpenVPN configuration files</span> (<code class="bg-zinc-50 px-1.5 py-0.5 text-sm font-mono">.ovpn</code>) <span data-i18n="step2.text2">via email with the subject "PandaGPT Prototype Access":</span> <code class="bg-zinc-50 px-1.5 py-0.5 text-sm font-mono">panda-internal-test-udp.ovpn</code> <span data-i18n="step2.text3">and</span> <code class="bg-zinc-50 px-1.5 py-0.5 text-sm font-mono">panda-internal-test-tcp.ovpn</code>
               </p>
-              <ol class="space-y-2 text-zinc-600 leading-relaxed mb-6">
-                <li class="flex gap-3"><span class="text-zinc-900 font-medium">1.</span><span>Open OpenVPN Connect</span></li>
-                <li class="flex gap-3"><span class="text-zinc-900 font-medium">2.</span><span>Double-click the first file <code class="bg-zinc-50 px-1.5 py-0.5 text-sm font-mono">panda-internal-test-udp.ovpn</code> or drag it into the OpenVPN window, then confirm the import</span></li>
-                <li class="flex gap-3"><span class="text-zinc-900 font-medium">3.</span><span>Repeat with the second file <code class="bg-zinc-50 px-1.5 py-0.5 text-sm font-mono">panda-internal-test-tcp.ovpn</code></span></li>
+              <ol class="space-y-3 text-zinc-600 leading-relaxed mb-6">
+                <li class="flex gap-3">
+                  <span class="text-zinc-900 font-medium">1.</span>
+                  <span data-i18n="step2.step1">Save both profile files from the email to your computer</span>
+                </li>
+                <li class="flex gap-3">
+                  <span class="text-zinc-900 font-medium">2.</span>
+                  <span><span data-i18n="step2.step2">Open AWS Client VPN and go to</span> <strong data-i18n="step2.step2b">File → Manage Profiles → Add Profiles</strong>. <span data-i18n="step2.step2c">This will open a popup window</span></span>
+                </li>
+                <li class="flex gap-3">
+                  <span class="text-zinc-900 font-medium">3.</span>
+                  <span><span data-i18n="step2.step3">In the popup, click "Select File" and choose the first file</span> <code class="bg-zinc-50 px-1.5 py-0.5 text-sm font-mono">panda-internal-test-udp.ovpn</code>. <span data-i18n="step2.step3b">Enter the Display Name:</span> <code class="bg-zinc-50 px-1.5 py-0.5 text-sm font-mono">panda-internal-test-udp</code> <span data-i18n="step2.step3c">and click "Add"</span></span>
+                </li>
+                <li class="flex gap-3">
+                  <span class="text-zinc-900 font-medium">4.</span>
+                  <span><span data-i18n="step2.step4">Repeat steps 2-3 for the second file</span> <code class="bg-zinc-50 px-1.5 py-0.5 text-sm font-mono">panda-internal-test-tcp.ovpn</code>, <span data-i18n="step2.step4b">using Display Name:</span> <code class="bg-zinc-50 px-1.5 py-0.5 text-sm font-mono">panda-internal-test-tcp</code></span>
+                </li>
               </ol>
-              <p class="text-sm text-zinc-500 leading-relaxed">
+              <p class="text-sm text-zinc-500 leading-relaxed" data-i18n="step2.note">
                 UDP is faster and works on most networks. TCP is more reliable and may work better on restrictive networks (corporate or public WiFi) where UDP is blocked.
               </p>
             </div>
@@ -118,9 +291,9 @@ sudo apt-get install openvpn</code>
           <div class="flex items-start gap-6">
             <div class="step-number">3</div>
             <div class="flex-1">
-              <h2 class="text-xl font-semibold mb-4 text-zinc-900">Connect to VPN</h2>
+              <h2 class="text-xl font-semibold mb-4 text-zinc-900" data-i18n="step3.title">Connect to VPN</h2>
               <p class="text-zinc-600 leading-relaxed">
-                Open OpenVPN Connect, find your <code class="bg-zinc-50 px-1.5 py-0.5 text-sm font-mono">panda-internal-test-udp</code> profile, and click the toggle button to connect. Wait for the status to show "Connected". If the connection fails, try the <code class="bg-zinc-50 px-1.5 py-0.5 text-sm font-mono">panda-internal-test-tcp</code> profile instead.
+                <span data-i18n="step3.text">In AWS Client VPN, find your</span> <code class="bg-zinc-50 px-1.5 py-0.5 text-sm font-mono">panda-internal-test-udp</code> <span data-i18n="step3.text2">profile, and click the</span> <strong>"Connect"</strong> <span data-i18n="step3.text3">button. Wait for the status to show "Connected". If the connection fails, try the</span> <code class="bg-zinc-50 px-1.5 py-0.5 text-sm font-mono">panda-internal-test-tcp</code> <span data-i18n="step3.text4">profile instead.</span>
               </p>
             </div>
           </div>
@@ -131,11 +304,11 @@ sudo apt-get install openvpn</code>
           <div class="flex items-start gap-6">
             <div class="step-number">4</div>
             <div class="flex-1">
-              <h2 class="text-xl font-semibold mb-4 text-zinc-900">Access PandaGPT</h2>
-              <p class="text-zinc-600 mb-6 leading-relaxed">
+              <h2 class="text-xl font-semibold mb-4 text-zinc-900" data-i18n="step4.title">Access PandaGPT</h2>
+              <p class="text-zinc-600 mb-6 leading-relaxed" data-i18n="step4.text">
                 Once connected, you can access the PandaGPT application.
               </p>
-              <p class="text-zinc-600 leading-relaxed">Open your web browser and navigate to: <a href="https://test.pandagpt.org" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-blue-600 hover:text-blue-700 underline underline-offset-2 font-medium">
+              <p class="text-zinc-600 leading-relaxed"><span data-i18n="step4.text2">Open your web browser and navigate to:</span> <a href="https://test.pandagpt.org" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-blue-600 hover:text-blue-700 underline underline-offset-2 font-medium">
                 <span>https://test.pandagpt.org</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
                   <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
@@ -148,13 +321,13 @@ sudo apt-get install openvpn</code>
 
         <!-- Troubleshooting -->
         <div class="pb-6 bg-amber-50/30 border-l-2 border-amber-400 py-4 px-4">
-          <h2 class="text-base font-semibold mb-4 text-amber-900">Troubleshooting</h2>
+          <h2 class="text-base font-semibold mb-4 text-amber-900" data-i18n="troubleshooting.title">Troubleshooting</h2>
           <div class="space-y-3 text-sm text-zinc-600 leading-relaxed">
             <p>
-              <span class="text-amber-900 font-medium">VPN won't connect?</span> Make sure you have an active internet connection and no firewall is blocking OpenVPN. Try switching between UDP and TCP profiles – some networks work better with TCP.
+              <span class="text-amber-900 font-medium" data-i18n="troubleshooting.q1">VPN won't connect?</span> <span data-i18n="troubleshooting.a1">Make sure you have an active internet connection and no firewall is blocking AWS Client VPN. Try switching between UDP and TCP profiles – some networks work better with TCP.</span>
             </p>
             <p>
-              <span class="text-amber-900 font-medium">Can't access test.pandagpt.org?</span> Verify your VPN is active in OpenVPN Connect. Try refreshing the page or clearing your browser cache. If the domain doesn't work, try the IP addresses: <a href="http://10.0.2.188" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700 underline underline-offset-2 font-medium">10.0.2.188</a> or <a href="http://10.0.2.227" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700 underline underline-offset-2 font-medium">10.0.2.227</a>
+              <span class="text-amber-900 font-medium" data-i18n="troubleshooting.q2">Can't access test.pandagpt.org?</span> <span data-i18n="troubleshooting.a2">Verify your VPN is active in AWS Client VPN. Try refreshing the page, clearing your browser cache, or switching to a different browser.</span>
             </p>
           </div>
         </div>
@@ -162,7 +335,7 @@ sudo apt-get install openvpn</code>
 
       <div class="mt-12">
         <p class="text-zinc-600 text-sm">
-          Need help? Contact us at <a href="mailto:panda_admin@interface-eu.org" class="text-blue-600 hover:text-blue-700 hover:underline underline-offset-4">panda_admin@interface-eu.org</a>
+          <span data-i18n="help.text">Need help? Contact us at</span> <a href="mailto:panda_admin@interface-eu.org" class="text-blue-600 hover:text-blue-700 hover:underline underline-offset-4">panda_admin@interface-eu.org</a>
         </p>
       </div>
       </div>
@@ -172,15 +345,15 @@ sudo apt-get install openvpn</code>
   <footer class="w-full bg-white backdrop-blur border-t border-zinc-200">
     <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-2xl">
       <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 py-4 text-sm text-zinc-900">
-        <span class="font-normal">Copyright &copy; 2025</span>
+        <span class="font-normal"><span data-i18n="footer.copyright">Copyright</span> &copy; 2025</span>
         <nav class="flex gap-4 md:gap-6 font-normal">
-          <a href="mailto:panda_admin@interface-eu.org" class="hover:underline underline-offset-4">
+          <a href="mailto:panda_admin@interface-eu.org" class="hover:underline underline-offset-4" data-i18n="footer.contact">
             Contact
           </a>
-          <a href="https://www.interface-eu.org/legal-notice" class="hover:underline underline-offset-4">
+          <a href="https://www.interface-eu.org/legal-notice" class="hover:underline underline-offset-4" data-i18n="footer.legal">
             Legal Notice
           </a>
-          <a href="https://www.interface-eu.org/privacy-policy" class="hover:underline underline-offset-4">
+          <a href="https://www.interface-eu.org/privacy-policy" class="hover:underline underline-offset-4" data-i18n="footer.privacy">
             Privacy Policy
           </a>
         </nav>
