@@ -51,6 +51,13 @@
         'troubleshooting.a1': 'Make sure you have an active internet connection and no firewall is blocking AWS Client VPN. Try switching between UDP and TCP profiles – some networks work better with TCP.',
         'troubleshooting.q2': 'Can\'t access test.pandagpt.org?',
         'troubleshooting.a2': 'Verify your VPN is active in AWS Client VPN. Try refreshing the page, clearing your browser cache, or switching to a different browser.',
+        'troubleshooting.expert.title': 'Expert: DNS Configuration',
+        'troubleshooting.expert.text': 'When connected to the split tunnel, the',
+        'troubleshooting.expert.text2': 'domain should be resolved using a DNS server inside the subnet where the VPN connects. The DNS server IP is',
+        'troubleshooting.expert.text3': 'and it resolves the domain to a single IP using a weighted DNS scheme for load balancing purposes.',
+        'troubleshooting.expert.debug.title': 'Debugging:',
+        'troubleshooting.expert.debug.text': 'When troubleshooting DNS issues, verify that the DNS server IP',
+        'troubleshooting.expert.debug.text2': 'is correctly configured by the VPN client. Also check that the subdomain can be resolved correctly.',
         'help.text': 'Need help? Contact us at',
         'footer.copyright': 'Copyright',
         'footer.contact': 'Contact',
@@ -62,10 +69,10 @@
         'nav.database': 'Datenbank',
         'title': 'PandaGPT - Einrichtungsanleitung',
         'setup.title': 'Einrichtungsanleitung',
-        'setup.intro': 'PandaGPT läuft derzeit auf nicht-öffentlicher Infrastruktur, die nur über eine VPN-Verbindung erreichbar ist. Befolgen Sie diese Schritte, um sich mit PandaGPT zu verbinden',
+        'setup.intro': 'PandaGPT läuft derzeit auf nicht-öffentlicher Infrastruktur, die nur über eine VPN-Verbindung erreichbar ist. Folgen Sie diesen Schritten, um sich mit PandaGPT zu verbinden.',
         'privacy.title': 'Datenschutzhinweis:',
-        'privacy.text': 'Dieser VPN verwendet eine Split-Tunnel-Konfiguration. Nur Datenverkehr zu Unterdomänen von',
-        'privacy.text2': 'wird über den VPN geleitet. Ihr gesamter andere Datenverkehr nutzt Ihre reguläre Verbindung.',
+        'privacy.text': 'Dieses VPN verwendet eine Split-Tunnel-Konfiguration. Nur Datenverkehr zu Unterdomänen von',
+        'privacy.text2': 'wird über das VPN geleitet. Ihr gesamter anderer Datenverkehr nutzt Ihre reguläre Verbindung.',
         'step1.title': 'AWS Client VPN herunterladen',
         'step1.text': 'Installieren Sie den AWS Client VPN-Client auf Ihrem Gerät.',
         'step1.button': 'AWS Client VPN herunterladen',
@@ -75,28 +82,35 @@
         'step2.text2': 'per E-Mail mit dem Betreff "PandaGPT Prototype Access" erhalten haben:',
         'step2.text3': 'und',
         'step2.step1': 'Speichern Sie beide Profildateien aus der E-Mail auf Ihrem Computer',
-        'step2.step2': 'Öffnen Sie AWS Client VPN und gehen Sie zu',
+        'step2.step2': 'Öffnen Sie AWS Client VPN und navigieren Sie zu',
         'step2.step2b': 'Datei → Profile verwalten → Profile hinzufügen',
-        'step2.step2c': 'Dies öffnet ein Popup-Fenster',
+        'step2.step2c': 'Es öffnet sich ein Popup-Fenster',
         'step2.step3': 'Klicken Sie im Popup auf "Datei auswählen" und wählen Sie die erste Datei',
         'step2.step3b': 'Geben Sie den Anzeigenamen ein:',
         'step2.step3c': 'und klicken Sie auf "Hinzufügen"',
         'step2.step4': 'Wiederholen Sie die Schritte 2-3 für die zweite Datei',
-        'step2.step4b': ' verwenden Sie den Anzeigenamen:',
+        'step2.step4b': 'und verwenden Sie den Anzeigenamen:',
         'step2.note': 'UDP ist schneller und funktioniert in den meisten Netzwerken. TCP ist zuverlässiger und funktioniert möglicherweise besser in restriktiven Netzwerken (Firmen- oder öffentliches WLAN), in denen UDP blockiert ist.',
         'step3.title': 'Mit VPN verbinden',
         'step3.text': 'Suchen Sie in AWS Client VPN Ihr',
         'step3.text2': 'Profil und klicken Sie auf die Schaltfläche',
-        'step3.text3': '. Warten Sie, bis der Status "Verbunden" anzeigt. Wenn die Verbindung fehlschlägt, versuchen Sie stattdessen das',
+        'step3.text3': '. Warten Sie, bis der Status "Verbunden" anzeigt. Falls die Verbindung fehlschlägt, versuchen Sie stattdessen das',
         'step3.text4': 'Profil.',
         'step4.title': 'Auf PandaGPT zugreifen',
         'step4.text': 'Sobald Sie verbunden sind, können Sie auf die PandaGPT-Anwendung zugreifen.',
         'step4.text2': 'Öffnen Sie Ihren Webbrowser und navigieren Sie zu:',
         'troubleshooting.title': 'Fehlerbehebung',
         'troubleshooting.q1': 'VPN-Verbindung schlägt fehl?',
-        'troubleshooting.a1': 'Stellen Sie sicher, dass Sie eine aktive Internetverbindung haben und keine Firewall AWS Client VPN blockiert. Versuchen Sie, zwischen UDP- und TCP-Profilen zu wechseln – einige Netzwerke funktionieren besser mit TCP.',
+        'troubleshooting.a1': 'Stellen Sie sicher, dass Sie eine aktive Internetverbindung haben und keine Firewall den AWS Client VPN blockiert. Versuchen Sie, zwischen UDP- und TCP-Profilen zu wechseln – einige Netzwerke funktionieren besser mit TCP.',
         'troubleshooting.q2': 'Zugriff auf test.pandagpt.org schlägt fehl?',
-        'troubleshooting.a2': 'Überprüfen Sie, ob Ihr VPN in AWS Client VPN aktiv ist. Versuchen Sie, die Seite zu aktualisieren, den Browser-Cache zu löschen oder zu einem anderen Browser zu wechseln.',
+        'troubleshooting.a2': 'Überprüfen Sie, ob Ihr VPN in AWS Client VPN aktiv ist. Versuchen Sie, die Seite neu zu laden, den Browser-Cache zu löschen oder zu einem anderen Browser zu wechseln.',
+        'troubleshooting.expert.title': 'Experte: DNS-Konfiguration',
+        'troubleshooting.expert.text': 'Wenn Sie mit dem Split-Tunnel verbunden sind, sollte die Domain',
+        'troubleshooting.expert.text2': 'über einen DNS-Server im Subnetz, mit dem das VPN verbindet, aufgelöst werden. Die DNS-Server-IP ist',
+        'troubleshooting.expert.text3': 'und löst die Domain zu einer einzelnen IP mithilfe eines gewichteten DNS-Schemas für Lastausgleichszwecke auf.',
+        'troubleshooting.expert.debug.title': 'Fehlerbehebung:',
+        'troubleshooting.expert.debug.text': 'Bei DNS-Problemen sollten Sie überprüfen, ob die DNS-Server-IP',
+        'troubleshooting.expert.debug.text2': 'korrekt durch den VPN-Client konfiguriert ist. Überprüfen Sie außerdem, ob die Unterdomäne korrekt aufgelöst werden kann.',
         'help.text': 'Benötigen Sie Hilfe? Kontaktieren Sie uns unter',
         'footer.copyright': 'Copyright',
         'footer.contact': 'Kontakt',
@@ -329,6 +343,18 @@
             <p>
               <span class="text-amber-900 font-medium" data-i18n="troubleshooting.q2">Can't access test.pandagpt.org?</span> <span data-i18n="troubleshooting.a2">Verify your VPN is active in AWS Client VPN. Try refreshing the page, clearing your browser cache, or switching to a different browser.</span>
             </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-amber-300">
+            <h3 class="text-sm font-semibold mb-2 text-amber-900" data-i18n="troubleshooting.expert.title">Expert: DNS Configuration</h3>
+            <p class="text-sm text-zinc-600 leading-relaxed mb-3">
+              <span data-i18n="troubleshooting.expert.text">When connected to the split tunnel, the</span> <code class="bg-amber-50 px-1.5 py-0.5 text-xs font-mono">test.pandagpt.org</code> <span data-i18n="troubleshooting.expert.text2">domain should be resolved using a DNS server inside the subnet where the VPN connects. The DNS server IP is</span> <code class="bg-amber-50 px-1.5 py-0.5 text-xs font-mono">10.0.0.2</code> <span data-i18n="troubleshooting.expert.text3">and it resolves the domain to a single IP using a weighted DNS scheme for load balancing purposes.</span>
+            </p>
+            <div class="mt-4">
+              <p class="text-sm font-semibold mb-2 text-amber-900" data-i18n="troubleshooting.expert.debug.title">Debugging:</p>
+              <p class="text-sm text-zinc-600 leading-relaxed">
+                <span data-i18n="troubleshooting.expert.debug.text">When troubleshooting DNS issues, verify that the DNS server IP</span> <code class="bg-amber-50 px-1.5 py-0.5 text-xs font-mono">10.0.0.2</code> <span data-i18n="troubleshooting.expert.debug.text2">is correctly configured by the VPN client. Also check that the subdomain can be resolved correctly.</span>
+              </p>
+            </div>
           </div>
         </div>
       </div>
