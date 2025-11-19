@@ -44,13 +44,16 @@
         'step3.text3': 'button. Wait for the status to show "Connected". If the connection fails, try the',
         'step3.text4': 'profile instead.',
         'step4.title': 'Access PandaGPT',
-        'step4.text': 'Once connected, wait approximately 3 minutes for routing and DNS settings to finish setting up before accessing the PandaGPT application.',
+        'step4.text': 'Once connected, wait approximately 1 minute for routing and DNS settings to finish setting up before accessing the PandaGPT application.',
         'step4.note': 'Note: This waiting period is only necessary after first connecting to the VPN. Subsequent connections do not require waiting.',
         'step4.timer.label': 'Wait timer:',
         'step4.timer.start': 'Start Timer',
         'step4.timer.reset': 'Reset Timer',
-        'step4.timer.complete': 'Ready! You can now access PandaGPT.',
-        'step4.text2': 'After waiting, open your web browser and navigate to:',
+        'step4.timer.complete': 'Ready! Restart your browser and access PandaGPT.',
+        'step4.browser': 'After waiting, completely quit and restart your web browser.',
+        'step4.browser.macos': 'On macOS:',
+        'step4.browser.macos.text': 'Make sure to quit the browser application through the Dock (right-click the browser icon and select "Quit") rather than just closing the window.',
+        'step4.text2': 'Then open your web browser and navigate to:',
         'troubleshooting.title': 'Troubleshooting',
         'troubleshooting.q1': 'VPN won\'t connect?',
         'troubleshooting.a1': 'Make sure you have an active internet connection and no firewall is blocking AWS Client VPN. Try switching between UDP and TCP profiles – some networks work better with TCP.',
@@ -112,13 +115,16 @@
         'step3.text3': '. Warten Sie, bis der Status "Verbunden" anzeigt. Falls die Verbindung fehlschlägt, versuchen Sie stattdessen das',
         'step3.text4': 'Profil.',
         'step4.title': 'Auf PandaGPT zugreifen',
-        'step4.text': 'Sobald Sie verbunden sind, warten Sie etwa 3 Minuten, bis Routing- und DNS-Einstellungen abgeschlossen sind, bevor Sie auf die PandaGPT-Anwendung zugreifen.',
+        'step4.text': 'Sobald Sie verbunden sind, warten Sie etwa 1 Minute, bis Routing- und DNS-Einstellungen abgeschlossen sind, bevor Sie auf die PandaGPT-Anwendung zugreifen.',
         'step4.note': 'Hinweis: Diese Wartezeit ist nur nach der ersten Verbindung zum VPN erforderlich. Nachfolgende Verbindungen erfordern kein Warten.',
         'step4.timer.label': 'Warte-Timer:',
         'step4.timer.start': 'Timer starten',
         'step4.timer.reset': 'Timer zurücksetzen',
-        'step4.timer.complete': 'Fertig! Sie können jetzt auf PandaGPT zugreifen.',
-        'step4.text2': 'Nach dem Warten öffnen Sie Ihren Webbrowser und navigieren Sie zu:',
+        'step4.timer.complete': 'Fertig! Starten Sie Ihren Browser neu und greifen Sie auf PandaGPT zu.',
+        'step4.browser': 'Nach dem Warten beenden Sie Ihren Webbrowser vollständig und starten Sie ihn neu.',
+        'step4.browser.macos': 'Unter macOS:',
+        'step4.browser.macos.text': 'Stellen Sie sicher, dass Sie die Browser-Anwendung über das Dock beenden (Rechtsklick auf das Browser-Symbol und "Beenden" wählen) und nicht nur das Fenster schließen.',
+        'step4.text2': 'Dann öffnen Sie Ihren Webbrowser und navigieren Sie zu:',
         'troubleshooting.title': 'Fehlerbehebung',
         'troubleshooting.q1': 'VPN-Verbindung schlägt fehl?',
         'troubleshooting.a1': 'Stellen Sie sicher, dass Sie eine aktive Internetverbindung haben und keine Firewall den AWS Client VPN blockiert. Versuchen Sie, zwischen UDP- und TCP-Profilen zu wechseln – einige Netzwerke funktionieren besser mit TCP.',
@@ -200,13 +206,13 @@
       // Update timer completion message if timer is complete
       const timerDisplay = document.getElementById('timer-display');
       if (timerDisplay && timerDisplay.classList.contains('text-green-600')) {
-        timerDisplay.textContent = t['step4.timer.complete'] || 'Ready! You can now access PandaGPT.';
+        timerDisplay.textContent = t['step4.timer.complete'] || 'Ready! Restart your browser and access PandaGPT.';
       }
     }
 
     // Timer functionality
     let timerInterval = null;
-    const TIMER_DURATION = 3 * 60; // 3 minutes in seconds
+    const TIMER_DURATION = 1 * 60; // 1 minute in seconds
 
     function formatTime(seconds) {
       const mins = Math.floor(seconds / 60);
@@ -237,7 +243,8 @@
 
       const startTime = getTimerStartTime();
       if (!startTime) {
-        timerDisplay.textContent = '03:00';
+        timerDisplay.textContent = '01:00';
+        timerDisplay.classList.remove('text-green-600', 'font-semibold');
         if (startButton) startButton.style.display = 'inline-flex';
         if (resetButton) resetButton.style.display = 'none';
         return;
@@ -250,7 +257,7 @@
         timerDisplay.textContent = '00:00';
         const locale = getLocale();
         const t = translations[locale] || translations.en;
-        timerDisplay.textContent = t['step4.timer.complete'] || 'Ready! You can now access PandaGPT.';
+        timerDisplay.textContent = t['step4.timer.complete'] || 'Ready! Restart your browser and access PandaGPT.';
         timerDisplay.classList.add('text-green-600', 'font-semibold');
         if (startButton) startButton.style.display = 'none';
         if (resetButton) resetButton.style.display = 'inline-flex';
@@ -472,7 +479,7 @@
             <div class="flex-1">
               <h2 class="text-xl font-semibold mb-4 text-zinc-900" data-i18n="step4.title">Access PandaGPT</h2>
               <p class="text-zinc-600 mb-4 leading-relaxed" data-i18n="step4.text">
-                Once connected, wait approximately 3 minutes for routing and DNS settings to finish setting up before accessing the PandaGPT application.
+                Once connected, wait approximately 1 minute for routing and DNS settings to finish setting up before accessing the PandaGPT application.
               </p>
               <p class="text-sm text-zinc-500 mb-6 leading-relaxed" data-i18n="step4.note">
                 Note: This waiting period is only necessary after first connecting to the VPN. Subsequent connections do not require waiting.
@@ -482,7 +489,7 @@
               <div class="mb-6 p-4 bg-zinc-50 border border-zinc-200">
                 <div class="flex items-center gap-4 flex-wrap">
                   <span id="timer-label" class="text-base font-medium text-zinc-700" data-i18n="step4.timer.label">Wait timer:</span>
-                  <span id="timer-display" class="text-base font-mono font-semibold text-zinc-900">03:00</span>
+                  <span id="timer-display" class="text-base font-mono font-semibold text-zinc-900">01:00</span>
                   <button 
                     id="timer-start-btn"
                     onclick="startTimer()"
@@ -503,7 +510,14 @@
                 </div>
               </div>
 
-              <p class="text-zinc-600 leading-relaxed"><span data-i18n="step4.text2">After waiting, open your web browser and navigate to:</span> <a href="https://test.pandagpt.org" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-blue-600 hover:text-blue-700 underline underline-offset-2 font-medium">
+              <p class="text-zinc-600 mb-3 leading-relaxed" data-i18n="step4.browser">
+                After waiting, completely quit and restart your web browser.
+              </p>
+              <p class="text-sm text-zinc-500 mb-4 leading-relaxed">
+                <span data-i18n="step4.browser.macos">On macOS:</span> <span data-i18n="step4.browser.macos.text">Make sure to quit the browser application through the Dock (right-click the browser icon and select "Quit") rather than just closing the window.</span>
+              </p>
+
+              <p class="text-zinc-600 leading-relaxed"><span data-i18n="step4.text2">Then open your web browser and navigate to:</span> <a href="https://test.pandagpt.org" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-blue-600 hover:text-blue-700 underline underline-offset-2 font-medium">
                 <span>https://test.pandagpt.org</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
                   <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
@@ -527,7 +541,7 @@
           </div>
           <div class="mt-6 border-t border-amber-300">
             <div class="mt-4 p-4 bg-amber-50/50 border border-amber-200">
-              <h3 class="text-sm font-semibold mb-2 text-amber-900" data-i18n="troubleshooting.expert.title">Expert: DNS Configuration</h3>
+            <h3 class="text-sm font-semibold mb-2 text-amber-900" data-i18n="troubleshooting.expert.title">Expert: DNS Configuration</h3>
             <p class="text-sm text-zinc-600 leading-relaxed mb-3">
               <span data-i18n="troubleshooting.expert.text">When connected to the split tunnel, the</span> <code class="bg-amber-50 px-1.5 py-0.5 text-xs font-mono">test.pandagpt.org</code> <span data-i18n="troubleshooting.expert.text2">domain should be resolved using a DNS server inside the subnet where the VPN connects. The DNS server IP is</span> <code class="bg-amber-50 px-1.5 py-0.5 text-xs font-mono">10.0.0.2</code> <span data-i18n="troubleshooting.expert.text3">and it resolves the domain to an IP address in the</span> <code class="bg-amber-50 px-1.5 py-0.5 text-xs font-mono">10.0.0.0/16</code> <span data-i18n="troubleshooting.expert.text4">subnet. Multiple IPs in that subnet are valid results.</span>
             </p>
