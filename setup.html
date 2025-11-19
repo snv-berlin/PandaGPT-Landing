@@ -44,20 +44,35 @@
         'step3.text3': 'button. Wait for the status to show "Connected". If the connection fails, try the',
         'step3.text4': 'profile instead.',
         'step4.title': 'Access PandaGPT',
-        'step4.text': 'Once connected, you can access the PandaGPT application.',
-        'step4.text2': 'Open your web browser and navigate to:',
+        'step4.text': 'Once connected, wait approximately 3 minutes for routing and DNS settings to finish setting up before accessing the PandaGPT application.',
+        'step4.note': 'Note: This waiting period is only necessary after first connecting to the VPN. Subsequent connections do not require waiting.',
+        'step4.timer.label': 'Wait timer:',
+        'step4.timer.start': 'Start Timer',
+        'step4.timer.reset': 'Reset Timer',
+        'step4.timer.complete': 'Ready! You can now access PandaGPT.',
+        'step4.text2': 'After waiting, open your web browser and navigate to:',
         'troubleshooting.title': 'Troubleshooting',
         'troubleshooting.q1': 'VPN won\'t connect?',
         'troubleshooting.a1': 'Make sure you have an active internet connection and no firewall is blocking AWS Client VPN. Try switching between UDP and TCP profiles – some networks work better with TCP.',
         'troubleshooting.q2': 'Can\'t access test.pandagpt.org?',
         'troubleshooting.a2': 'Verify your VPN is active in AWS Client VPN. Try refreshing the page, clearing your browser cache, or switching to a different browser.',
-        'troubleshooting.expert.title': 'Expert: DNS Configuration',
+        'troubleshooting.expert.title': 'Advanced Troubleshooting',
         'troubleshooting.expert.text': 'When connected to the split tunnel, the',
         'troubleshooting.expert.text2': 'domain should be resolved using a DNS server inside the subnet where the VPN connects. The DNS server IP is',
-        'troubleshooting.expert.text3': 'and it resolves the domain to a single IP using a weighted DNS scheme for load balancing purposes.',
+        'troubleshooting.expert.text3': 'and it resolves the domain to an IP address in the',
+        'troubleshooting.expert.text4': 'subnet. Multiple IPs in that subnet are valid results.',
         'troubleshooting.expert.debug.title': 'Debugging:',
-        'troubleshooting.expert.debug.text': 'When troubleshooting DNS issues, verify that the DNS server IP',
-        'troubleshooting.expert.debug.text2': 'is correctly configured by the VPN client. Also check that the subdomain can be resolved correctly.',
+        'troubleshooting.expert.debug.text': 'When troubleshooting DNS issues, first verify that a route to the',
+        'troubleshooting.expert.debug.text2': 'subnet exists over the VPN Client. Then check if',
+        'troubleshooting.expert.debug.text3': 'can be resolved using DNS server',
+        'troubleshooting.expert.debug.text4': 'to an IP address in the',
+        'troubleshooting.expert.debug.text5': 'subnet.',
+        'troubleshooting.expert.browser.title': 'DNS works but browser won\'t load?',
+        'troubleshooting.expert.browser.text': 'If DNS resolution works correctly but your browser still won\'t load the site, try flushing your OS DNS cache, clearing your browser cache, switching to a different browser, or using an incognito/private browsing window.',
+        'troubleshooting.expert.alternative.title': 'Still not working?',
+        'troubleshooting.expert.alternative.text': 'If none of the cache clearing or flushing works, and you have verified that DNS resolution works correctly, try visiting',
+        'troubleshooting.expert.alternative.visit': '',
+        'troubleshooting.expert.alternative.warning': 'Note: Only visit these alternative domains after verifying DNS resolution works to prevent them from being cached as unresolvable in your OS DNS cache.',
         'help.text': 'Need help? Contact us at',
         'footer.copyright': 'Copyright',
         'footer.contact': 'Contact',
@@ -97,20 +112,35 @@
         'step3.text3': '. Warten Sie, bis der Status "Verbunden" anzeigt. Falls die Verbindung fehlschlägt, versuchen Sie stattdessen das',
         'step3.text4': 'Profil.',
         'step4.title': 'Auf PandaGPT zugreifen',
-        'step4.text': 'Sobald Sie verbunden sind, können Sie auf die PandaGPT-Anwendung zugreifen.',
-        'step4.text2': 'Öffnen Sie Ihren Webbrowser und navigieren Sie zu:',
+        'step4.text': 'Sobald Sie verbunden sind, warten Sie etwa 3 Minuten, bis Routing- und DNS-Einstellungen abgeschlossen sind, bevor Sie auf die PandaGPT-Anwendung zugreifen.',
+        'step4.note': 'Hinweis: Diese Wartezeit ist nur nach der ersten Verbindung zum VPN erforderlich. Nachfolgende Verbindungen erfordern kein Warten.',
+        'step4.timer.label': 'Warte-Timer:',
+        'step4.timer.start': 'Timer starten',
+        'step4.timer.reset': 'Timer zurücksetzen',
+        'step4.timer.complete': 'Fertig! Sie können jetzt auf PandaGPT zugreifen.',
+        'step4.text2': 'Nach dem Warten öffnen Sie Ihren Webbrowser und navigieren Sie zu:',
         'troubleshooting.title': 'Fehlerbehebung',
         'troubleshooting.q1': 'VPN-Verbindung schlägt fehl?',
         'troubleshooting.a1': 'Stellen Sie sicher, dass Sie eine aktive Internetverbindung haben und keine Firewall den AWS Client VPN blockiert. Versuchen Sie, zwischen UDP- und TCP-Profilen zu wechseln – einige Netzwerke funktionieren besser mit TCP.',
         'troubleshooting.q2': 'Zugriff auf test.pandagpt.org schlägt fehl?',
         'troubleshooting.a2': 'Überprüfen Sie, ob Ihr VPN in AWS Client VPN aktiv ist. Versuchen Sie, die Seite neu zu laden, den Browser-Cache zu löschen oder zu einem anderen Browser zu wechseln.',
-        'troubleshooting.expert.title': 'Experte: DNS-Konfiguration',
+        'troubleshooting.expert.title': 'Erweiterte Fehlerbehebung',
         'troubleshooting.expert.text': 'Wenn Sie mit dem Split-Tunnel verbunden sind, sollte die Domain',
         'troubleshooting.expert.text2': 'über einen DNS-Server im Subnetz, mit dem das VPN verbindet, aufgelöst werden. Die DNS-Server-IP ist',
-        'troubleshooting.expert.text3': 'und löst die Domain zu einer einzelnen IP mithilfe eines gewichteten DNS-Schemas für Lastausgleichszwecke auf.',
+        'troubleshooting.expert.text3': 'und löst die Domain zu einer IP-Adresse im',
+        'troubleshooting.expert.text4': 'Subnetz auf. Mehrere IPs in diesem Subnetz sind gültige Ergebnisse.',
         'troubleshooting.expert.debug.title': 'Fehlerbehebung:',
-        'troubleshooting.expert.debug.text': 'Bei DNS-Problemen sollten Sie überprüfen, ob die DNS-Server-IP',
-        'troubleshooting.expert.debug.text2': 'korrekt durch den VPN-Client konfiguriert ist. Überprüfen Sie außerdem, ob die Unterdomäne korrekt aufgelöst werden kann.',
+        'troubleshooting.expert.debug.text': 'Bei DNS-Problemen sollten Sie zunächst überprüfen, ob eine Route zum',
+        'troubleshooting.expert.debug.text2': 'Subnetz über den VPN-Client besteht. Überprüfen Sie dann, ob',
+        'troubleshooting.expert.debug.text3': 'mit dem DNS-Server',
+        'troubleshooting.expert.debug.text4': 'zu einer IP-Adresse im',
+        'troubleshooting.expert.debug.text5': 'Subnetz aufgelöst werden kann.',
+        'troubleshooting.expert.browser.title': 'DNS funktioniert, aber Browser lädt nicht?',
+        'troubleshooting.expert.browser.text': 'Wenn die DNS-Auflösung korrekt funktioniert, aber Ihr Browser die Seite dennoch nicht lädt, versuchen Sie, den DNS-Cache Ihres Betriebssystems zu leeren, den Browser-Cache zu löschen, zu einem anderen Browser zu wechseln oder ein Inkognito-/Privat-Fenster zu verwenden.',
+        'troubleshooting.expert.alternative.title': 'Domain lässt sich immer noch nicht aufrufen?',
+        'troubleshooting.expert.alternative.text': 'Wenn das Leeren oder Flushen der Caches nicht funktioniert und Sie überprüft haben, dass die DNS-Auflösung korrekt funktioniert, versuchen Sie,',
+        'troubleshooting.expert.alternative.visit': 'aufzurufen',
+        'troubleshooting.expert.alternative.warning': 'Hinweis: Besuchen Sie diese alternativen Domains nur, nachdem Sie überprüft haben, dass die DNS-Auflösung funktioniert, um zu verhindern, dass sie als nicht auflösbar im DNS-Cache Ihres Betriebssystems gespeichert werden.',
         'help.text': 'Benötigen Sie Hilfe? Kontaktieren Sie uns unter',
         'footer.copyright': 'Copyright',
         'footer.contact': 'Kontakt',
@@ -140,7 +170,7 @@
       // Update all elements with data-i18n attribute
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (t[key]) {
+        if (t.hasOwnProperty(key)) {
           el.textContent = t[key];
         }
       });
@@ -166,7 +196,95 @@
           btn.classList.remove('text-zinc-900');
         }
       });
+
+      // Update timer completion message if timer is complete
+      const timerDisplay = document.getElementById('timer-display');
+      if (timerDisplay && timerDisplay.classList.contains('text-green-600')) {
+        timerDisplay.textContent = t['step4.timer.complete'] || 'Ready! You can now access PandaGPT.';
+      }
     }
+
+    // Timer functionality
+    let timerInterval = null;
+    const TIMER_DURATION = 3 * 60; // 3 minutes in seconds
+
+    function formatTime(seconds) {
+      const mins = Math.floor(seconds / 60);
+      const secs = seconds % 60;
+      return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    function getTimerStartTime() {
+      const stored = localStorage.getItem('vpnTimerStart');
+      return stored ? parseInt(stored, 10) : null;
+    }
+
+    function setTimerStartTime() {
+      localStorage.setItem('vpnTimerStart', Date.now().toString());
+    }
+
+    function clearTimerStartTime() {
+      localStorage.removeItem('vpnTimerStart');
+    }
+
+    function updateTimerDisplay() {
+      const timerDisplay = document.getElementById('timer-display');
+      const timerLabel = document.getElementById('timer-label');
+      const startButton = document.getElementById('timer-start-btn');
+      const resetButton = document.getElementById('timer-reset-btn');
+      
+      if (!timerDisplay) return;
+
+      const startTime = getTimerStartTime();
+      if (!startTime) {
+        timerDisplay.textContent = '03:00';
+        if (startButton) startButton.style.display = 'inline-flex';
+        if (resetButton) resetButton.style.display = 'none';
+        return;
+      }
+
+      const elapsed = Math.floor((Date.now() - startTime) / 1000);
+      const remaining = Math.max(0, TIMER_DURATION - elapsed);
+
+      if (remaining === 0) {
+        timerDisplay.textContent = '00:00';
+        const locale = getLocale();
+        const t = translations[locale] || translations.en;
+        timerDisplay.textContent = t['step4.timer.complete'] || 'Ready! You can now access PandaGPT.';
+        timerDisplay.classList.add('text-green-600', 'font-semibold');
+        if (startButton) startButton.style.display = 'none';
+        if (resetButton) resetButton.style.display = 'inline-flex';
+        if (timerLabel) timerLabel.style.display = 'none';
+        clearInterval(timerInterval);
+        timerInterval = null;
+      } else {
+        timerDisplay.textContent = formatTime(remaining);
+        timerDisplay.classList.remove('text-green-600', 'font-semibold');
+        if (startButton) startButton.style.display = 'none';
+        if (resetButton) resetButton.style.display = 'inline-flex';
+        if (timerLabel) timerLabel.style.display = 'inline';
+      }
+    }
+
+    function startTimer() {
+      setTimerStartTime();
+      updateTimerDisplay();
+      if (timerInterval) clearInterval(timerInterval);
+      timerInterval = setInterval(updateTimerDisplay, 1000);
+    }
+
+    function resetTimer() {
+      clearTimerStartTime();
+      if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+      }
+      updateTimerDisplay();
+    }
+
+    // Expose timer functions globally for onclick handlers
+    window.startTimer = startTimer;
+    window.resetTimer = resetTimer;
 
     // Initialize on page load
     document.addEventListener('DOMContentLoaded', () => {
@@ -174,6 +292,40 @@
       const htmlRoot = document.getElementById('html-root') || document.documentElement;
       htmlRoot.lang = locale;
       updateTranslations();
+      
+      // Initialize timer
+      const startTime = getTimerStartTime();
+      if (startTime) {
+        const elapsed = Math.floor((Date.now() - startTime) / 1000);
+        if (elapsed < TIMER_DURATION) {
+          startTimer();
+        } else {
+          resetTimer();
+        }
+      } else {
+        updateTimerDisplay();
+      }
+
+      // Randomly select one alternative domain
+      const alternativeDomain1 = document.getElementById('alternative-domain');
+      const alternativeDomain2 = document.getElementById('alternative-domain-2');
+      const domains = ['test01.pandagpt.org', 'test02.pandagpt.org'];
+      const selectedDomain = domains[Math.floor(Math.random() * domains.length)];
+      const otherDomain = domains.find(d => d !== selectedDomain);
+
+      if (alternativeDomain1 && alternativeDomain2) {
+        // Set both links to the selected domain
+        alternativeDomain1.href = `https://${selectedDomain}`;
+        alternativeDomain1.textContent = selectedDomain;
+        alternativeDomain2.href = `https://${otherDomain}`;
+        alternativeDomain2.textContent = otherDomain;
+        // Hide the second link and "or" text
+        alternativeDomain2.style.display = 'none';
+        const orSpan = alternativeDomain2.previousElementSibling;
+        if (orSpan && orSpan.tagName === 'SPAN') {
+          orSpan.style.display = 'none';
+        }
+      }
     });
   </script>
   <style>
@@ -319,10 +471,39 @@
             <div class="step-number">4</div>
             <div class="flex-1">
               <h2 class="text-xl font-semibold mb-4 text-zinc-900" data-i18n="step4.title">Access PandaGPT</h2>
-              <p class="text-zinc-600 mb-6 leading-relaxed" data-i18n="step4.text">
-                Once connected, you can access the PandaGPT application.
+              <p class="text-zinc-600 mb-4 leading-relaxed" data-i18n="step4.text">
+                Once connected, wait approximately 3 minutes for routing and DNS settings to finish setting up before accessing the PandaGPT application.
               </p>
-              <p class="text-zinc-600 leading-relaxed"><span data-i18n="step4.text2">Open your web browser and navigate to:</span> <a href="https://test.pandagpt.org" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-blue-600 hover:text-blue-700 underline underline-offset-2 font-medium">
+              <p class="text-sm text-zinc-500 mb-6 leading-relaxed" data-i18n="step4.note">
+                Note: This waiting period is only necessary after first connecting to the VPN. Subsequent connections do not require waiting.
+              </p>
+              
+              <!-- Timer -->
+              <div class="mb-6 p-4 bg-zinc-50 border border-zinc-200">
+                <div class="flex items-center gap-4 flex-wrap">
+                  <span id="timer-label" class="text-base font-medium text-zinc-700" data-i18n="step4.timer.label">Wait timer:</span>
+                  <span id="timer-display" class="text-base font-mono font-semibold text-zinc-900">03:00</span>
+                  <button 
+                    id="timer-start-btn"
+                    onclick="startTimer()"
+                    class="inline-flex items-center gap-2 bg-zinc-900 hover:bg-zinc-700 text-white font-medium py-2 px-4 transition-colors text-base"
+                    data-i18n="step4.timer.start"
+                  >
+                    Start Timer
+                  </button>
+                  <button 
+                    id="timer-reset-btn"
+                    onclick="resetTimer()"
+                    class="inline-flex items-center gap-2 bg-zinc-600 hover:bg-zinc-500 text-white font-medium py-2 px-4 transition-colors text-base"
+                    style="display: none;"
+                    data-i18n="step4.timer.reset"
+                  >
+                    Reset Timer
+                  </button>
+                </div>
+              </div>
+
+              <p class="text-zinc-600 leading-relaxed"><span data-i18n="step4.text2">After waiting, open your web browser and navigate to:</span> <a href="https://test.pandagpt.org" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-blue-600 hover:text-blue-700 underline underline-offset-2 font-medium">
                 <span>https://test.pandagpt.org</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
                   <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
@@ -334,7 +515,7 @@
         </div>
 
         <!-- Troubleshooting -->
-        <div class="pb-6 bg-amber-50/30 border-l-2 border-amber-400 py-4 px-4">
+        <div class="pb-4 bg-amber-50/30 border-l-2 border-amber-400 py-4 px-4">
           <h2 class="text-base font-semibold mb-4 text-amber-900" data-i18n="troubleshooting.title">Troubleshooting</h2>
           <div class="space-y-3 text-sm text-zinc-600 leading-relaxed">
             <p>
@@ -344,16 +525,26 @@
               <span class="text-amber-900 font-medium" data-i18n="troubleshooting.q2">Can't access test.pandagpt.org?</span> <span data-i18n="troubleshooting.a2">Verify your VPN is active in AWS Client VPN. Try refreshing the page, clearing your browser cache, or switching to a different browser.</span>
             </p>
           </div>
-          <div class="mt-6 pt-4 border-t border-amber-300">
-            <h3 class="text-sm font-semibold mb-2 text-amber-900" data-i18n="troubleshooting.expert.title">Expert: DNS Configuration</h3>
+          <div class="mt-6 border-t border-amber-300">
+            <div class="mt-4 p-4 bg-amber-50/50 border border-amber-200">
+              <h3 class="text-sm font-semibold mb-2 text-amber-900" data-i18n="troubleshooting.expert.title">Expert: DNS Configuration</h3>
             <p class="text-sm text-zinc-600 leading-relaxed mb-3">
-              <span data-i18n="troubleshooting.expert.text">When connected to the split tunnel, the</span> <code class="bg-amber-50 px-1.5 py-0.5 text-xs font-mono">test.pandagpt.org</code> <span data-i18n="troubleshooting.expert.text2">domain should be resolved using a DNS server inside the subnet where the VPN connects. The DNS server IP is</span> <code class="bg-amber-50 px-1.5 py-0.5 text-xs font-mono">10.0.0.2</code> <span data-i18n="troubleshooting.expert.text3">and it resolves the domain to a single IP using a weighted DNS scheme for load balancing purposes.</span>
+              <span data-i18n="troubleshooting.expert.text">When connected to the split tunnel, the</span> <code class="bg-amber-50 px-1.5 py-0.5 text-xs font-mono">test.pandagpt.org</code> <span data-i18n="troubleshooting.expert.text2">domain should be resolved using a DNS server inside the subnet where the VPN connects. The DNS server IP is</span> <code class="bg-amber-50 px-1.5 py-0.5 text-xs font-mono">10.0.0.2</code> <span data-i18n="troubleshooting.expert.text3">and it resolves the domain to an IP address in the</span> <code class="bg-amber-50 px-1.5 py-0.5 text-xs font-mono">10.0.0.0/16</code> <span data-i18n="troubleshooting.expert.text4">subnet. Multiple IPs in that subnet are valid results.</span>
             </p>
             <div class="mt-4">
-              <p class="text-sm font-semibold mb-2 text-amber-900" data-i18n="troubleshooting.expert.debug.title">Debugging:</p>
-              <p class="text-sm text-zinc-600 leading-relaxed">
-                <span data-i18n="troubleshooting.expert.debug.text">When troubleshooting DNS issues, verify that the DNS server IP</span> <code class="bg-amber-50 px-1.5 py-0.5 text-xs font-mono">10.0.0.2</code> <span data-i18n="troubleshooting.expert.debug.text2">is correctly configured by the VPN client. Also check that the subdomain can be resolved correctly.</span>
+              <p class="text-sm text-zinc-600 leading-relaxed mb-3">
+                <span data-i18n="troubleshooting.expert.debug.text">When troubleshooting DNS issues, first verify that a route to the</span> <code class="bg-amber-50 px-1.5 py-0.5 text-xs font-mono">10.0.0.0/16</code> <span data-i18n="troubleshooting.expert.debug.text2">subnet exists over the VPN Client. Then check if</span> <code class="bg-amber-50 px-1.5 py-0.5 text-xs font-mono">test.pandagpt.org</code> <span data-i18n="troubleshooting.expert.debug.text3">can be resolved using DNS server</span> <code class="bg-amber-50 px-1.5 py-0.5 text-xs font-mono">10.0.0.2</code> <span data-i18n="troubleshooting.expert.debug.text4">to an IP address in the</span> <code class="bg-amber-50 px-1.5 py-0.5 text-xs font-mono">10.0.0.0/16</code> <span data-i18n="troubleshooting.expert.debug.text5">subnet.</span>
               </p>
+              <p class="text-sm text-zinc-600 leading-relaxed mb-3">
+                <span class="text-amber-900 font-medium" data-i18n="troubleshooting.expert.browser.title">DNS works but browser won't load?</span> <span data-i18n="troubleshooting.expert.browser.text">If DNS resolution works correctly but your browser still won't load the site, try flushing your OS DNS cache, clearing your browser cache, switching to a different browser, or using an incognito/private browsing window.</span>
+              </p>
+              <p class="text-sm text-zinc-600 leading-relaxed mb-2">
+                <span class="text-amber-900 font-medium" data-i18n="troubleshooting.expert.alternative.title">Still not working?</span> <span data-i18n="troubleshooting.expert.alternative.text">If none of the cache clearing or flushing works, and you have verified that DNS resolution works correctly, try visiting</span> <a id="alternative-domain" href="#" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700 underline underline-offset-2 font-medium"></a> <span id="alternative-visit" data-i18n="troubleshooting.expert.alternative.visit"></span><span id="alternative-or" style="display: none;"> or </span><a id="alternative-domain-2" href="#" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700 underline underline-offset-2 font-medium" style="display: none;"></a>.
+              </p>
+              <p class="text-sm text-zinc-600 leading-relaxed">
+                <span data-i18n="troubleshooting.expert.alternative.warning">Note: Only visit these alternative domains after verifying DNS resolution works to prevent DNS cache poisoning.</span>
+              </p>
+            </div>
             </div>
           </div>
         </div>
