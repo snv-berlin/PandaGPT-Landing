@@ -20,6 +20,7 @@
         'privacy.title': 'Privacy Notice:',
         'privacy.text': 'This VPN uses a split-tunnel configuration. Only traffic to subdomains of',
         'privacy.text2': 'is routed through the VPN. All other traffic uses your regular connection.',
+        'privacy.note': 'The split-tunnel VPN might not work out of the box and may require additional configuration as laid out below.',
         'step1.title': 'Download AWS Client VPN',
         'step1.text': 'Install the AWS Client VPN client on your device.',
         'step1.button': 'Download AWS Client VPN',
@@ -45,7 +46,7 @@
         'step3.text4': 'profile instead.',
         'step4.title': 'Access PandaGPT',
         'step4.text': 'Once connected, wait approximately 1 minute for routing and DNS settings to finish setting up before accessing the PandaGPT application.',
-        'step4.note': 'Note: This waiting period is only necessary after first connecting to the VPN. Subsequent connections do not require waiting.',
+        'step4.note': 'This waiting period is only necessary after first connecting to the VPN. Subsequent connections do not require waiting.',
         'step4.timer.label': 'Wait timer:',
         'step4.timer.start': 'Start Timer',
         'step4.timer.reset': 'Reset Timer',
@@ -58,7 +59,40 @@
         'troubleshooting.q1': 'VPN won\'t connect?',
         'troubleshooting.a1': 'Make sure you have an active internet connection and no firewall is blocking AWS Client VPN. Try switching between UDP and TCP profiles – some networks work better with TCP.',
         'troubleshooting.q2': 'Can\'t access test.pandagpt.org?',
-        'troubleshooting.a2': 'Verify your VPN is active in AWS Client VPN. Try refreshing the page, clearing your browser cache, or switching to a different browser.',
+        'troubleshooting.a2.step1': 'Verify your VPN is active in AWS Client VPN',
+        'troubleshooting.a2.step2': 'Try refreshing the page',
+        'troubleshooting.a2.step3': 'Clear your browser cache',
+        'troubleshooting.a2.step4': 'Switch to a different browser',
+        'troubleshooting.a2.step5': '(Windows only) Restart AWS VPN Client as administrator',
+        'troubleshooting.q3': 'Still can\'t reach PandaGPT?',
+        'troubleshooting.a3': 'Try manually adding',
+        'troubleshooting.a3b': 'to your DNS Servers',
+        'troubleshooting.dns.tabs.macos': 'macOS',
+        'troubleshooting.dns.tabs.windows': 'Windows',
+        'troubleshooting.dns.tabs.linux': 'Linux',
+        'troubleshooting.dns.macos.step1': 'Open System Settings (or System Preferences on older macOS versions)',
+        'troubleshooting.dns.macos.step2': 'Go to Network',
+        'troubleshooting.dns.macos.step3': 'Select your active network connection (Wi-Fi or Ethernet)',
+        'troubleshooting.dns.macos.step4': 'Click "Details" or "Advanced"',
+        'troubleshooting.dns.macos.step5': 'Go to the "DNS" tab',
+        'troubleshooting.dns.macos.step6': 'Click the "+" button to add a new DNS server',
+        'troubleshooting.dns.macos.step7': 'Enter',
+        'troubleshooting.dns.macos.step8': 'and click "OK" or "Apply"',
+        'troubleshooting.dns.macos.step9': 'Make sure this DNS server is at the top of the list (drag it if needed)',
+        'troubleshooting.dns.windows.step1': 'Open Settings (Windows key + I)',
+        'troubleshooting.dns.windows.step2': 'Go to Network & Internet',
+        'troubleshooting.dns.windows.step3': 'Click on "Advanced network settings"',
+        'troubleshooting.dns.windows.step4': 'Click on "More network adapter options" (or search for "View network connections" in the Start menu)',
+        'troubleshooting.dns.windows.step5': 'Find the network adapter named "AWS VPN Client" or similar (it should show as "Connected")',
+        'troubleshooting.dns.windows.step6': 'Click "Edit" under the VPN adapter',
+        'troubleshooting.dns.windows.step7': 'Select "Internet Protocol Version 4 (TCP/IPv4)" and click "Properties"',
+        'troubleshooting.dns.windows.step8': 'Select "Use the following DNS server addresses"',
+        'troubleshooting.dns.windows.step9': 'Enter',
+        'troubleshooting.dns.windows.step10': 'in the "Preferred DNS server" field',
+        'troubleshooting.dns.windows.step11': 'Click "OK" on both dialogs',
+        'troubleshooting.dns.windows.step12': 'Restart the AWS VPN Client as administrator (right-click the AWS VPN Client icon in the system tray and select "Run as administrator", or close and reopen the application as administrator)',
+        'troubleshooting.dns.windows.note': 'Important: Make sure you are modifying the VPN adapter, not your regular Wi-Fi or Ethernet adapter.',
+        'troubleshooting.dns.linux.text': 'You probably know better how to do this ;)',
         'troubleshooting.expert.title': 'Advanced Troubleshooting',
         'troubleshooting.expert.text': 'When connected to the split tunnel, the',
         'troubleshooting.expert.text2': 'domain should be resolved using a DNS server inside the subnet where the VPN connects. The DNS server IP is',
@@ -91,6 +125,7 @@
         'privacy.title': 'Datenschutzhinweis:',
         'privacy.text': 'Dieses VPN verwendet eine Split-Tunnel-Konfiguration. Nur Datenverkehr zu Unterdomänen von',
         'privacy.text2': 'wird über das VPN geleitet. Ihr gesamter anderer Datenverkehr nutzt Ihre reguläre Verbindung.',
+        'privacy.note': 'Das Split-Tunnel-VPN funktioniert möglicherweise nicht sofort und kann zusätzliche Konfiguration erfordern, wie unten beschrieben.',
         'step1.title': 'AWS Client VPN herunterladen',
         'step1.text': 'Installieren Sie den AWS Client VPN-Client auf Ihrem Gerät.',
         'step1.button': 'AWS Client VPN herunterladen',
@@ -116,7 +151,7 @@
         'step3.text4': 'Profil.',
         'step4.title': 'Auf PandaGPT zugreifen',
         'step4.text': 'Sobald Sie verbunden sind, warten Sie etwa 1 Minute, bis Routing- und DNS-Einstellungen abgeschlossen sind, bevor Sie auf die PandaGPT-Anwendung zugreifen.',
-        'step4.note': 'Hinweis: Diese Wartezeit ist nur nach der ersten Verbindung zum VPN erforderlich. Nachfolgende Verbindungen erfordern kein Warten.',
+        'step4.note': 'Diese Wartezeit ist nur nach der ersten Verbindung zum VPN erforderlich. Nachfolgende Verbindungen erfordern kein Warten.',
         'step4.timer.label': 'Warte-Timer:',
         'step4.timer.start': 'Timer starten',
         'step4.timer.reset': 'Timer zurücksetzen',
@@ -129,7 +164,40 @@
         'troubleshooting.q1': 'VPN-Verbindung schlägt fehl?',
         'troubleshooting.a1': 'Stellen Sie sicher, dass Sie eine aktive Internetverbindung haben und keine Firewall den AWS Client VPN blockiert. Versuchen Sie, zwischen UDP- und TCP-Profilen zu wechseln – einige Netzwerke funktionieren besser mit TCP.',
         'troubleshooting.q2': 'Zugriff auf test.pandagpt.org schlägt fehl?',
-        'troubleshooting.a2': 'Überprüfen Sie, ob Ihr VPN in AWS Client VPN aktiv ist. Versuchen Sie, die Seite neu zu laden, den Browser-Cache zu löschen oder zu einem anderen Browser zu wechseln.',
+        'troubleshooting.a2.step1': 'Überprüfen Sie, ob Ihr VPN in AWS Client VPN aktiv ist',
+        'troubleshooting.a2.step2': 'Versuchen Sie, die Seite neu zu laden',
+        'troubleshooting.a2.step3': 'Löschen Sie den Browser-Cache',
+        'troubleshooting.a2.step4': 'Wechseln Sie zu einem anderen Browser',
+        'troubleshooting.a2.step5': '(Nur Windows) Starten Sie den AWS VPN Client als Administrator neu',
+        'troubleshooting.q3': 'PandaGPT immer noch nicht erreichbar?',
+        'troubleshooting.a3': 'Versuchen Sie,',
+        'troubleshooting.a3b': 'manuell zu Ihren DNS-Servern hinzuzufügen',
+        'troubleshooting.dns.tabs.macos': 'macOS',
+        'troubleshooting.dns.tabs.windows': 'Windows',
+        'troubleshooting.dns.tabs.linux': 'Linux',
+        'troubleshooting.dns.macos.step1': 'Öffnen Sie die Systemeinstellungen (oder Systemeinstellungen in älteren macOS-Versionen)',
+        'troubleshooting.dns.macos.step2': 'Gehen Sie zu Netzwerk',
+        'troubleshooting.dns.macos.step3': 'Wählen Sie Ihre aktive Netzwerkverbindung (Wi-Fi oder Ethernet)',
+        'troubleshooting.dns.macos.step4': 'Klicken Sie auf "Details" oder "Erweitert"',
+        'troubleshooting.dns.macos.step5': 'Gehen Sie zum Tab "DNS"',
+        'troubleshooting.dns.macos.step6': 'Klicken Sie auf die Schaltfläche "+", um einen neuen DNS-Server hinzuzufügen',
+        'troubleshooting.dns.macos.step7': 'Geben Sie',
+        'troubleshooting.dns.macos.step8': 'ein und klicken Sie auf "OK" oder "Übernehmen"',
+        'troubleshooting.dns.macos.step9': 'Stellen Sie sicher, dass dieser DNS-Server ganz oben in der Liste steht (ziehen Sie ihn bei Bedarf)',
+        'troubleshooting.dns.windows.step1': 'Öffnen Sie die Einstellungen (Windows-Taste + I)',
+        'troubleshooting.dns.windows.step2': 'Gehen Sie zu Netzwerk & Internet',
+        'troubleshooting.dns.windows.step3': 'Klicken Sie auf "Erweiterte Netzwerkeinstellungen"',
+        'troubleshooting.dns.windows.step4': 'Klicken Sie auf "Weitere Netzwerkadapteroptionen" (oder suchen Sie im Startmenü nach "Netzwerkverbindungen anzeigen")',
+        'troubleshooting.dns.windows.step5': 'Suchen Sie den Netzwerkadapter mit dem Namen "AWS VPN Client" oder ähnlich (er sollte als "Verbunden" angezeigt werden)',
+        'troubleshooting.dns.windows.step6': 'Klicken Sie auf "Bearbeiten" unter dem VPN-Adapter',
+        'troubleshooting.dns.windows.step7': 'Wählen Sie "Internetprotokoll Version 4 (TCP/IPv4)" und klicken Sie auf "Eigenschaften"',
+        'troubleshooting.dns.windows.step8': 'Wählen Sie "Folgende DNS-Serveradressen verwenden"',
+        'troubleshooting.dns.windows.step9': 'Geben Sie',
+        'troubleshooting.dns.windows.step10': 'in das Feld "Bevorzugter DNS-Server" ein',
+        'troubleshooting.dns.windows.step11': 'Klicken Sie in beiden Dialogen auf "OK"',
+        'troubleshooting.dns.windows.step12': 'Starten Sie den AWS VPN Client als Administrator neu (Rechtsklick auf das AWS VPN Client-Symbol in der Systemleiste und wählen Sie "Als Administrator ausführen", oder schließen und öffnen Sie die Anwendung als Administrator)',
+        'troubleshooting.dns.windows.note': 'Wichtig: Stellen Sie sicher, dass Sie den VPN-Adapter ändern, nicht Ihren regulären WLAN- oder Ethernet-Adapter.',
+        'troubleshooting.dns.linux.text': 'Sie wissen wahrscheinlich besser, wie das geht ;)',
         'troubleshooting.expert.title': 'Erweiterte Fehlerbehebung',
         'troubleshooting.expert.text': 'Wenn Sie mit dem Split-Tunnel verbunden sind, sollte die Domain',
         'troubleshooting.expert.text2': 'über einen DNS-Server im Subnetz, mit dem das VPN verbindet, aufgelöst werden. Die DNS-Server-IP ist',
@@ -293,6 +361,36 @@
     window.startTimer = startTimer;
     window.resetTimer = resetTimer;
 
+    // Tab switching function
+    function switchTab(tabName) {
+      // Hide all tab contents
+      document.querySelectorAll('.dns-tab-content').forEach(content => {
+        content.style.display = 'none';
+      });
+      
+      // Remove active state from all tabs
+      document.querySelectorAll('.dns-tab-btn').forEach(btn => {
+        btn.classList.remove('bg-amber-100', 'text-amber-900', 'border-amber-400');
+        btn.classList.add('bg-transparent', 'text-amber-700', 'border-transparent', 'hover:bg-amber-50/50', 'hover:text-amber-900', 'hover:border-amber-300');
+      });
+      
+      // Show selected tab content
+      const selectedContent = document.getElementById(`dns-tab-${tabName}`);
+      if (selectedContent) {
+        selectedContent.style.display = 'block';
+      }
+      
+      // Add active state to selected tab
+      const selectedTab = document.getElementById(`dns-tab-btn-${tabName}`);
+      if (selectedTab) {
+        selectedTab.classList.remove('bg-transparent', 'text-amber-700', 'border-transparent', 'hover:bg-amber-50/50', 'hover:text-amber-900', 'hover:border-amber-300');
+        selectedTab.classList.add('bg-amber-100', 'text-amber-900', 'border-amber-400');
+      }
+    }
+
+    // Expose tab switching function globally
+    window.switchTab = switchTab;
+
     // Initialize on page load
     document.addEventListener('DOMContentLoaded', () => {
       const locale = getLocale();
@@ -312,6 +410,9 @@
       } else {
         updateTimerDisplay();
       }
+
+      // Initialize DNS tabs (macOS tab is active by default)
+      switchTab('macos');
 
       // Randomly select one alternative domain
       const alternativeDomain1 = document.getElementById('alternative-domain');
@@ -399,6 +500,9 @@
       <div class="mb-12 bg-blue-50/30 border-l-2 border-blue-400 py-4 px-4">
         <p class="text-sm text-zinc-600 leading-relaxed">
           <span class="text-blue-900 font-medium" data-i18n="privacy.title">Privacy Notice:</span> <span data-i18n="privacy.text">This VPN uses a split-tunnel configuration. Only traffic to subdomains of</span> <code class="bg-white px-1.5 py-0.5 text-xs font-mono">pandagpt.org</code> <span data-i18n="privacy.text2">is routed through the VPN. All other traffic uses your regular connection.</span>
+        </p>
+        <p class="text-sm text-zinc-600 leading-relaxed mt-2">
+          <span data-i18n="privacy.note">Note: The split-tunnel VPN might not work out of the box and may require additional configuration as laid out below.</span>
         </p>
       </div>
 
@@ -529,19 +633,107 @@
         </div>
 
         <!-- Troubleshooting -->
-        <div class="pb-4 bg-amber-50/30 border-l-2 border-amber-400 py-4 px-4">
-          <h2 class="text-base font-semibold mb-4 text-amber-900" data-i18n="troubleshooting.title">Troubleshooting</h2>
-          <div class="space-y-3 text-sm text-zinc-600 leading-relaxed">
-            <p>
-              <span class="text-amber-900 font-medium" data-i18n="troubleshooting.q1">VPN won't connect?</span> <span data-i18n="troubleshooting.a1">Make sure you have an active internet connection and no firewall is blocking AWS Client VPN. Try switching between UDP and TCP profiles – some networks work better with TCP.</span>
-            </p>
-            <p>
-              <span class="text-amber-900 font-medium" data-i18n="troubleshooting.q2">Can't access test.pandagpt.org?</span> <span data-i18n="troubleshooting.a2">Verify your VPN is active in AWS Client VPN. Try refreshing the page, clearing your browser cache, or switching to a different browser.</span>
-            </p>
+        <div class="space-y-6">
+          <!-- Basic Troubleshooting Box -->
+          <div class="bg-amber-50/30 border-l-2 border-amber-400 py-4 px-4">
+            <h2 class="text-base font-semibold mb-4 text-amber-900" data-i18n="troubleshooting.title">Troubleshooting</h2>
+            <div class="space-y-3 text-sm text-zinc-600 leading-relaxed">
+              <p>
+                <span class="text-amber-900 font-medium" data-i18n="troubleshooting.q1">VPN won't connect?</span> <span data-i18n="troubleshooting.a1">Make sure you have an active internet connection and no firewall is blocking AWS Client VPN. Try switching between UDP and TCP profiles – some networks work better with TCP.</span>
+              </p>
+              <div>
+                <p class="mb-2">
+                  <span class="text-amber-900 font-medium" data-i18n="troubleshooting.q2">Can't access test.pandagpt.org?</span>
+                </p>
+                <ol class="space-y-1 text-sm text-zinc-600 leading-relaxed list-decimal list-inside ml-2">
+                  <li data-i18n="troubleshooting.a2.step1">Verify your VPN is active in AWS Client VPN</li>
+                  <li data-i18n="troubleshooting.a2.step2">Try refreshing the page</li>
+                  <li data-i18n="troubleshooting.a2.step3">Clear your browser cache</li>
+                  <li data-i18n="troubleshooting.a2.step4">Switch to a different browser</li>
+                  <li data-i18n="troubleshooting.a2.step5">(Windows only) Restart AWS VPN Client as administrator</li>
+                </ol>
+              </div>
+              <div>
+                <p class="mb-3">
+                  <span class="text-amber-900 font-medium" data-i18n="troubleshooting.q3">Still can't reach PandaGPT?</span> <span data-i18n="troubleshooting.a3">Try adding</span> <code class="bg-amber-50 px-1.5 py-0.5 text-xs font-mono">10.0.0.2</code> <span data-i18n="troubleshooting.a3b">to your DNS Servers</span>:
+                </p>
+                
+                <!-- Tab Navigation -->
+                <div class="flex gap-2 mb-4 border-b border-amber-200">
+                  <button
+                    id="dns-tab-btn-macos"
+                    class="dns-tab-btn px-4 py-2 text-sm font-medium border-b-2 bg-amber-100 text-amber-900 border-amber-400"
+                    onclick="switchTab('macos')"
+                    data-i18n="troubleshooting.dns.tabs.macos"
+                  >
+                    macOS
+                  </button>
+                  <button
+                    id="dns-tab-btn-windows"
+                    class="dns-tab-btn px-4 py-2 text-sm font-medium border-b-2 bg-transparent text-amber-700 border-transparent hover:bg-amber-50/50 hover:text-amber-900 hover:border-amber-300"
+                    onclick="switchTab('windows')"
+                    data-i18n="troubleshooting.dns.tabs.windows"
+                  >
+                    Windows
+                  </button>
+                  <button
+                    id="dns-tab-btn-linux"
+                    class="dns-tab-btn px-4 py-2 text-sm font-medium border-b-2 bg-transparent text-amber-700 border-transparent hover:bg-amber-50/50 hover:text-amber-900 hover:border-amber-300"
+                    onclick="switchTab('linux')"
+                    data-i18n="troubleshooting.dns.tabs.linux"
+                  >
+                    Linux
+                  </button>
+                </div>
+
+                <!-- Tab Contents -->
+                <!-- macOS Tab -->
+                <div id="dns-tab-macos" class="dns-tab-content">
+                  <ol class="space-y-2 text-sm text-zinc-600 leading-relaxed list-decimal list-inside">
+                    <li data-i18n="troubleshooting.dns.macos.step1">Open System Settings (or System Preferences on older macOS versions)</li>
+                    <li data-i18n="troubleshooting.dns.macos.step2">Go to Network</li>
+                    <li data-i18n="troubleshooting.dns.macos.step3">Select your active network connection (Wi-Fi or Ethernet)</li>
+                    <li data-i18n="troubleshooting.dns.macos.step4">Click "Details" or "Advanced"</li>
+                    <li data-i18n="troubleshooting.dns.macos.step5">Go to the "DNS" tab</li>
+                    <li data-i18n="troubleshooting.dns.macos.step6">Click the "+" button to add a new DNS server</li>
+                    <li><span data-i18n="troubleshooting.dns.macos.step7">Enter</span> <code class="bg-amber-50 px-1.5 py-0.5 text-xs font-mono">10.0.0.2</code> <span data-i18n="troubleshooting.dns.macos.step8">and click "OK" or "Apply"</span></li>
+                    <li data-i18n="troubleshooting.dns.macos.step9">Make sure this DNS server is at the top of the list (drag it if needed)</li>
+                  </ol>
+                </div>
+
+                <!-- Windows Tab -->
+                <div id="dns-tab-windows" class="dns-tab-content" style="display: none;">
+                  <ol class="space-y-2 text-sm text-zinc-600 leading-relaxed list-decimal list-inside">
+                    <li data-i18n="troubleshooting.dns.windows.step1">Open Settings (Windows key + I)</li>
+                    <li data-i18n="troubleshooting.dns.windows.step2">Go to Network & Internet</li>
+                    <li data-i18n="troubleshooting.dns.windows.step3">Click on "Advanced network settings"</li>
+                    <li data-i18n="troubleshooting.dns.windows.step4">Click on "More network adapter options" (or search for "View network connections" in the Start menu)</li>
+                    <li data-i18n="troubleshooting.dns.windows.step5">Find the network adapter named "AWS VPN Client" or similar (it should show as "Connected")</li>
+                    <li data-i18n="troubleshooting.dns.windows.step6">Click "Edit" under the VPN adapter</li>
+                    <li data-i18n="troubleshooting.dns.windows.step7">Select "Internet Protocol Version 4 (TCP/IPv4)" and click "Properties"</li>
+                    <li data-i18n="troubleshooting.dns.windows.step8">Select "Use the following DNS server addresses"</li>
+                    <li><span data-i18n="troubleshooting.dns.windows.step9">Enter</span> <code class="bg-amber-50 px-1.5 py-0.5 text-xs font-mono">10.0.0.2</code> <span data-i18n="troubleshooting.dns.windows.step10">in the "Preferred DNS server" field</span></li>
+                    <li data-i18n="troubleshooting.dns.windows.step11">Click "OK" on both dialogs</li>
+                    <li data-i18n="troubleshooting.dns.windows.step12">Restart the AWS VPN Client as administrator (right-click the AWS VPN Client icon in the system tray and select "Run as administrator", or close and reopen the application as administrator)</li>
+                  </ol>
+                  <p class="mt-3 text-xs text-amber-700 leading-relaxed" data-i18n="troubleshooting.dns.windows.note">
+                    Important: Make sure you are modifying the VPN adapter, not your regular Wi-Fi or Ethernet adapter.
+                  </p>
+                </div>
+
+                <!-- Linux Tab -->
+                <div id="dns-tab-linux" class="dns-tab-content" style="display: none;">
+                  <p class="text-sm text-zinc-600 leading-relaxed" data-i18n="troubleshooting.dns.linux.text">
+                    You probably know better how to do this ;)
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="mt-6 border-t border-amber-300">
-            <div class="mt-4 p-4 bg-amber-50/50 border border-amber-200">
-            <h3 class="text-sm font-semibold mb-2 text-amber-900" data-i18n="troubleshooting.expert.title">Expert: DNS Configuration</h3>
+
+          <!-- Advanced Troubleshooting Box -->
+          <div class="bg-amber-50/30 border-l-2 border-amber-400 py-4 px-4">
+            <h3 class="text-base font-semibold mb-4 text-amber-900" data-i18n="troubleshooting.expert.title">Advanced Troubleshooting</h3>
             <p class="text-sm text-zinc-600 leading-relaxed mb-3">
               <span data-i18n="troubleshooting.expert.text">When connected to the split tunnel, the</span> <code class="bg-amber-50 px-1.5 py-0.5 text-xs font-mono">test.pandagpt.org</code> <span data-i18n="troubleshooting.expert.text2">domain should be resolved using a DNS server inside the subnet where the VPN connects. The DNS server IP is</span> <code class="bg-amber-50 px-1.5 py-0.5 text-xs font-mono">10.0.0.2</code> <span data-i18n="troubleshooting.expert.text3">and it resolves the domain to an IP address in the</span> <code class="bg-amber-50 px-1.5 py-0.5 text-xs font-mono">10.0.0.0/16</code> <span data-i18n="troubleshooting.expert.text4">subnet. Multiple IPs in that subnet are valid results.</span>
             </p>
@@ -558,7 +750,6 @@
               <p class="text-sm text-zinc-600 leading-relaxed">
                 <span data-i18n="troubleshooting.expert.alternative.warning">Note: Only visit these alternative domains after verifying DNS resolution works to prevent DNS cache poisoning.</span>
               </p>
-            </div>
             </div>
           </div>
         </div>
