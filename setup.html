@@ -12,6 +12,7 @@
     // Translation object
     const translations = {
       en: {
+        'nav.setup': 'Setup',
         'nav.chat': 'Chat',
         'nav.database': 'Database',
         'title': 'PandaGPT - Setup Guide',
@@ -45,26 +46,20 @@
         'step3.text3': 'button. Wait for the status to show "Connected". If the connection fails, try the',
         'step3.text4': 'profile instead.',
         'step4.title': 'Access PandaGPT',
-        'step4.text': 'Once connected, wait approximately 1 minute for routing and DNS settings to finish setting up before accessing the PandaGPT application.',
-        'step4.note': 'This waiting period is only necessary after first connecting to the VPN. Subsequent connections do not require waiting.',
-        'step4.timer.label': 'Wait timer:',
-        'step4.timer.start': 'Start Timer',
-        'step4.timer.reset': 'Reset Timer',
         'step4.timer.complete': 'Ready! Restart your browser and access PandaGPT.',
-        'step4.browser': 'After waiting, completely quit and restart your web browser.',
-        'step4.browser.macos': 'On macOS:',
-        'step4.browser.macos.text': 'Make sure to quit the browser application through the Dock (right-click the browser icon and select "Quit") rather than just closing the window.',
-        'step4.text2': 'Then open your web browser and navigate to:',
-        'troubleshooting.title': 'Troubleshooting',
+        'step4.text2': 'Navigate to:',
+        'step4.failure': 'Please fix the VPN and DNS connection issues above to access PandaGPT.',
+        'troubleshooting.vpn.title': 'VPN Connection Troubleshooting',
+        'troubleshooting.dns.title': 'DNS Troubleshooting',
         'troubleshooting.q1': 'VPN won\'t connect?',
         'troubleshooting.a1': 'Make sure you have an active internet connection and no firewall is blocking AWS Client VPN. Try switching between UDP and TCP profiles – some networks work better with TCP.',
-        'troubleshooting.q2': 'Can\'t access test.pandagpt.org?',
+        'troubleshooting.q2': 'DNS Check fails?',
         'troubleshooting.a2.step1': 'Verify your VPN is active in AWS Client VPN',
         'troubleshooting.a2.step2': 'Try refreshing the page',
         'troubleshooting.a2.step3': 'Clear your browser cache',
         'troubleshooting.a2.step4': 'Switch to a different browser',
         'troubleshooting.a2.step5': '(Windows only) Restart AWS VPN Client as administrator',
-        'troubleshooting.q3': 'Still can\'t reach PandaGPT?',
+        'troubleshooting.q3': 'DNS Check still fails?',
         'troubleshooting.a3': 'Try manually adding',
         'troubleshooting.a3b': 'to your DNS Servers',
         'troubleshooting.dns.tabs.macos': 'macOS',
@@ -90,7 +85,6 @@
         'troubleshooting.dns.windows.step9': 'Enter',
         'troubleshooting.dns.windows.step10': 'in the "Preferred DNS server" field',
         'troubleshooting.dns.windows.step11': 'Click "OK" on both dialogs',
-        'troubleshooting.dns.windows.step12': 'Restart the AWS VPN Client as administrator (right-click the AWS VPN Client icon in the system tray and select "Run as administrator", or close and reopen the application as administrator)',
         'troubleshooting.dns.windows.note': 'Important: Make sure you are modifying the VPN adapter, not your regular Wi-Fi or Ethernet adapter.',
         'troubleshooting.dns.linux.text': 'You probably know better how to do this ;)',
         'troubleshooting.expert.title': 'Advanced Troubleshooting',
@@ -109,7 +103,30 @@
         'troubleshooting.expert.alternative.title': 'Still not working?',
         'troubleshooting.expert.alternative.text': 'If none of the cache clearing or flushing works, and you have verified that DNS resolution works correctly, try visiting',
         'troubleshooting.expert.alternative.visit': '',
-        'troubleshooting.expert.alternative.warning': 'Note: Only visit these alternative domains after verifying DNS resolution works to prevent them from being cached as unresolvable in your OS DNS cache.',
+        'troubleshooting.expert.alternative.warning': 'Important: Only visit these alternative domains after verifying DNS resolution works to prevent them from being cached as unresolvable in your OS DNS cache.',
+        'troubleshooting.vpn.expert.title': 'Advanced  Troubleshooting',
+        'troubleshooting.vpn.expert.text': 'When troubleshooting VPN connection issues, first verify that a route to the',
+        'troubleshooting.vpn.expert.text2': 'subnet exists. The VPN should establish routes to',
+        'troubleshooting.vpn.expert.text3': 'when connected. Check your routing table to confirm the VPN routes are active.',
+        'troubleshooting.vpn.expert.route.title': 'How to check routes:',
+        'troubleshooting.vpn.expert.route.macos': 'On macOS/Linux, run',
+        'troubleshooting.vpn.expert.route.windows': 'On Windows, run',
+        'troubleshooting.vpn.expert.route.command': 'in a terminal and look for routes to',
+        'troubleshooting.vpn.expert.route.verify': 'If no route exists, the VPN connection may not be fully established. Try disconnecting and reconnecting the VPN.',
+        'status.checking_vpn': 'Checking VPN connection...',
+        'status.vpn.connected': 'VPN Connected',
+        'status.vpn.not_connected': 'VPN Not Connected',
+        'status.checking_dns': 'Checking DNS resolution...',
+        'status.dns.issues': 'DNS Issues Detected',
+        'status.vpn.connected.text': 'Your VPN connection is active.',
+        'status.vpn.not_connected.text': 'VPN connection check failed. Please ensure you are connected to the VPN.',
+        'status.dns.working.message': 'DNS Working',
+        'status.dns.working.text': 'Your DNS configuration is working correctly.',
+        'status.dns.partial.message': 'DNS Partially Working',
+        'status.dns.partial.text': 'Only one domain is reachable. There is probably some maintenance ongoing, but you can still proceed using PandaGPT.',
+        'status.dns.issues.text': 'DNS resolution check failed. Please check your DNS configuration.',
+        'status.dns.requires_vpn': 'DNS Check Requires VPN',
+        'status.dns.requires_vpn.text': 'Please connect to the VPN first to check DNS resolution.',
         'help.text': 'Need help? Contact us at',
         'footer.copyright': 'Copyright',
         'footer.contact': 'Contact',
@@ -117,6 +134,7 @@
         'footer.privacy': 'Privacy Policy'
       },
       de: {
+        'nav.setup': 'Einrichtung',
         'nav.chat': 'Chat',
         'nav.database': 'Datenbank',
         'title': 'PandaGPT - Einrichtungsanleitung',
@@ -150,32 +168,26 @@
         'step3.text3': '. Warten Sie, bis der Status "Verbunden" anzeigt. Falls die Verbindung fehlschlägt, versuchen Sie stattdessen das',
         'step3.text4': 'Profil.',
         'step4.title': 'Auf PandaGPT zugreifen',
-        'step4.text': 'Sobald Sie verbunden sind, warten Sie etwa 1 Minute, bis Routing- und DNS-Einstellungen abgeschlossen sind, bevor Sie auf die PandaGPT-Anwendung zugreifen.',
-        'step4.note': 'Diese Wartezeit ist nur nach der ersten Verbindung zum VPN erforderlich. Nachfolgende Verbindungen erfordern kein Warten.',
-        'step4.timer.label': 'Warte-Timer:',
-        'step4.timer.start': 'Timer starten',
-        'step4.timer.reset': 'Timer zurücksetzen',
         'step4.timer.complete': 'Fertig! Starten Sie Ihren Browser neu und greifen Sie auf PandaGPT zu.',
-        'step4.browser': 'Nach dem Warten beenden Sie Ihren Webbrowser vollständig und starten Sie ihn neu.',
-        'step4.browser.macos': 'Unter macOS:',
-        'step4.browser.macos.text': 'Stellen Sie sicher, dass Sie die Browser-Anwendung über das Dock beenden (Rechtsklick auf das Browser-Symbol und "Beenden" wählen) und nicht nur das Fenster schließen.',
-        'step4.text2': 'Dann öffnen Sie Ihren Webbrowser und navigieren Sie zu:',
-        'troubleshooting.title': 'Fehlerbehebung',
+        'step4.text2': 'Navigieren Sie zu:',
+        'step4.failure': 'Bitte beheben Sie die VPN- und DNS-Verbindungsprobleme oben, um auf PandaGPT zuzugreifen.',
+        'troubleshooting.vpn.title': 'VPN-Verbindungs-Fehlerbehebung',
+        'troubleshooting.dns.title': 'DNS-Fehlerbehebung',
         'troubleshooting.q1': 'VPN-Verbindung schlägt fehl?',
         'troubleshooting.a1': 'Stellen Sie sicher, dass Sie eine aktive Internetverbindung haben und keine Firewall den AWS Client VPN blockiert. Versuchen Sie, zwischen UDP- und TCP-Profilen zu wechseln – einige Netzwerke funktionieren besser mit TCP.',
-        'troubleshooting.q2': 'Zugriff auf test.pandagpt.org schlägt fehl?',
+        'troubleshooting.q2': 'DNS Check schlägt fehl?',
         'troubleshooting.a2.step1': 'Überprüfen Sie, ob Ihr VPN in AWS Client VPN aktiv ist',
         'troubleshooting.a2.step2': 'Versuchen Sie, die Seite neu zu laden',
         'troubleshooting.a2.step3': 'Löschen Sie den Browser-Cache',
         'troubleshooting.a2.step4': 'Wechseln Sie zu einem anderen Browser',
         'troubleshooting.a2.step5': '(Nur Windows) Starten Sie den AWS VPN Client als Administrator neu',
-        'troubleshooting.q3': 'PandaGPT immer noch nicht erreichbar?',
+        'troubleshooting.q3': 'DNS Check schlägt immer noch fehl?',
         'troubleshooting.a3': 'Versuchen Sie,',
         'troubleshooting.a3b': 'manuell zu Ihren DNS-Servern hinzuzufügen',
         'troubleshooting.dns.tabs.macos': 'macOS',
         'troubleshooting.dns.tabs.windows': 'Windows',
         'troubleshooting.dns.tabs.linux': 'Linux',
-        'troubleshooting.dns.macos.step1': 'Öffnen Sie die Systemeinstellungen (oder Systemeinstellungen in älteren macOS-Versionen)',
+        'troubleshooting.dns.macos.step1': 'Öffnen Sie die Systemeinstellungen',
         'troubleshooting.dns.macos.step2': 'Gehen Sie zu Netzwerk',
         'troubleshooting.dns.macos.step3': 'Wählen Sie Ihre aktive Netzwerkverbindung (Wi-Fi oder Ethernet)',
         'troubleshooting.dns.macos.step4': 'Klicken Sie auf "Details" oder "Erweitert"',
@@ -187,15 +199,14 @@
         'troubleshooting.dns.windows.step1': 'Öffnen Sie die Einstellungen (Windows-Taste + I)',
         'troubleshooting.dns.windows.step2': 'Gehen Sie zu Netzwerk & Internet',
         'troubleshooting.dns.windows.step3': 'Klicken Sie auf "Erweiterte Netzwerkeinstellungen"',
-        'troubleshooting.dns.windows.step4': 'Klicken Sie auf "Weitere Netzwerkadapteroptionen" (oder suchen Sie im Startmenü nach "Netzwerkverbindungen anzeigen")',
-        'troubleshooting.dns.windows.step5': 'Suchen Sie den Netzwerkadapter mit dem Namen "AWS VPN Client" oder ähnlich (er sollte als "Verbunden" angezeigt werden)',
+        'troubleshooting.dns.windows.step4': 'Klicken Sie auf "Weitere Netzwerkadapteroptionen"',
+        'troubleshooting.dns.windows.step5': 'Suchen Sie den Netzwerkadapter mit dem Namen "AWS VPN Client" oder ähnlich',
         'troubleshooting.dns.windows.step6': 'Klicken Sie auf "Bearbeiten" unter dem VPN-Adapter',
         'troubleshooting.dns.windows.step7': 'Wählen Sie "Internetprotokoll Version 4 (TCP/IPv4)" und klicken Sie auf "Eigenschaften"',
         'troubleshooting.dns.windows.step8': 'Wählen Sie "Folgende DNS-Serveradressen verwenden"',
         'troubleshooting.dns.windows.step9': 'Geben Sie',
         'troubleshooting.dns.windows.step10': 'in das Feld "Bevorzugter DNS-Server" ein',
         'troubleshooting.dns.windows.step11': 'Klicken Sie in beiden Dialogen auf "OK"',
-        'troubleshooting.dns.windows.step12': 'Starten Sie den AWS VPN Client als Administrator neu (Rechtsklick auf das AWS VPN Client-Symbol in der Systemleiste und wählen Sie "Als Administrator ausführen", oder schließen und öffnen Sie die Anwendung als Administrator)',
         'troubleshooting.dns.windows.note': 'Wichtig: Stellen Sie sicher, dass Sie den VPN-Adapter ändern, nicht Ihren regulären WLAN- oder Ethernet-Adapter.',
         'troubleshooting.dns.linux.text': 'Sie wissen wahrscheinlich besser, wie das geht ;)',
         'troubleshooting.expert.title': 'Erweiterte Fehlerbehebung',
@@ -214,7 +225,30 @@
         'troubleshooting.expert.alternative.title': 'Domain lässt sich immer noch nicht aufrufen?',
         'troubleshooting.expert.alternative.text': 'Wenn das Leeren oder Flushen der Caches nicht funktioniert und Sie überprüft haben, dass die DNS-Auflösung korrekt funktioniert, versuchen Sie,',
         'troubleshooting.expert.alternative.visit': 'aufzurufen',
-        'troubleshooting.expert.alternative.warning': 'Hinweis: Besuchen Sie diese alternativen Domains nur, nachdem Sie überprüft haben, dass die DNS-Auflösung funktioniert, um zu verhindern, dass sie als nicht auflösbar im DNS-Cache Ihres Betriebssystems gespeichert werden.',
+        'troubleshooting.expert.alternative.warning': 'Wichtig: Besuchen Sie diese alternativen Domains nur, nachdem Sie überprüft haben, dass die DNS-Auflösung funktioniert, um zu verhindern, dass sie als nicht auflösbar im DNS-Cache Ihres Betriebssystems gespeichert werden.',
+        'troubleshooting.vpn.expert.title': 'Erweiterte Fehlerbehebung',
+        'troubleshooting.vpn.expert.text': 'Bei VPN-Verbindungsproblemen sollten Sie zunächst überprüfen, ob eine Route zum',
+        'troubleshooting.vpn.expert.text2': 'Subnetz besteht. Das VPN sollte Routen zu',
+        'troubleshooting.vpn.expert.text3': 'herstellen, wenn es verbunden ist. Überprüfen Sie Ihre Routing-Tabelle, um zu bestätigen, dass die VPN-Routen aktiv sind.',
+        'troubleshooting.vpn.expert.route.title': 'So überprüfen Sie Routen:',
+        'troubleshooting.vpn.expert.route.macos': 'Auf macOS/Linux führen Sie',
+        'troubleshooting.vpn.expert.route.windows': 'Auf Windows führen Sie',
+        'troubleshooting.vpn.expert.route.command': 'in einem Terminal aus und suchen Sie nach Routen zu',
+        'troubleshooting.vpn.expert.route.verify': 'Wenn keine Route existiert, ist die VPN-Verbindung möglicherweise nicht vollständig hergestellt. Versuchen Sie, das VPN zu trennen und erneut zu verbinden.',
+        'status.checking_vpn': 'VPN-Verbindung wird überprüft...',
+        'status.vpn.connected': 'VPN verbunden',
+        'status.vpn.not_connected': 'VPN nicht verbunden',
+        'status.checking_dns': 'DNS-Auflösung wird überprüft...',
+        'status.dns.issues': 'DNS-Probleme erkannt',
+        'status.vpn.connected.text': 'Ihre VPN-Verbindung ist aktiv.',
+        'status.vpn.not_connected.text': 'VPN-Verbindungsprüfung fehlgeschlagen. Bitte stellen Sie sicher, dass Sie mit dem VPN verbunden sind.',
+        'status.dns.working.message': 'DNS funktioniert',
+        'status.dns.working.text': 'Ihre DNS-Konfiguration funktioniert korrekt.',
+        'status.dns.partial.message': 'DNS teilweise funktionsfähig',
+        'status.dns.partial.text': 'Nur eine Domain ist erreichbar. Es läuft wahrscheinlich eine Wartung, aber Sie können trotzdem mit PandaGPT fortfahren.',
+        'status.dns.issues.text': 'DNS-Auflösungsprüfung fehlgeschlagen. Bitte überprüfen Sie Ihre DNS-Konfiguration.',
+        'status.dns.requires_vpn': 'DNS-Prüfung erfordert VPN',
+        'status.dns.requires_vpn.text': 'Bitte verbinden Sie sich zuerst mit dem VPN, um die DNS-Auflösung zu überprüfen.',
         'help.text': 'Benötigen Sie Hilfe? Kontaktieren Sie uns unter',
         'footer.copyright': 'Copyright',
         'footer.contact': 'Kontakt',
@@ -259,6 +293,9 @@
 
       // Update title
       document.title = t['title'];
+      
+      // Restore heading states after translations update
+      restoreHeadingStates();
 
       // Update language switcher active state
       document.querySelectorAll('.lang-switcher-btn').forEach(btn => {
@@ -271,95 +308,63 @@
         }
       });
 
-      // Update timer completion message if timer is complete
-      const timerDisplay = document.getElementById('timer-display');
-      if (timerDisplay && timerDisplay.classList.contains('text-green-600')) {
-        timerDisplay.textContent = t['step4.timer.complete'] || 'Ready! Restart your browser and access PandaGPT.';
-      }
     }
-
-    // Timer functionality
-    let timerInterval = null;
-    const TIMER_DURATION = 1 * 60; // 1 minute in seconds
-
-    function formatTime(seconds) {
-      const mins = Math.floor(seconds / 60);
-      const secs = seconds % 60;
-      return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-    }
-
-    function getTimerStartTime() {
-      const stored = localStorage.getItem('vpnTimerStart');
-      return stored ? parseInt(stored, 10) : null;
-    }
-
-    function setTimerStartTime() {
-      localStorage.setItem('vpnTimerStart', Date.now().toString());
-    }
-
-    function clearTimerStartTime() {
-      localStorage.removeItem('vpnTimerStart');
-    }
-
-    function updateTimerDisplay() {
-      const timerDisplay = document.getElementById('timer-display');
-      const timerLabel = document.getElementById('timer-label');
-      const startButton = document.getElementById('timer-start-btn');
-      const resetButton = document.getElementById('timer-reset-btn');
+    
+    // Restore heading states after language switch
+    function restoreHeadingStates() {
+      const locale = getLocale();
+      const t = translations[locale] || translations.en;
+      const vpnHeading = document.getElementById('vpn-heading');
+      const dnsHeading = document.getElementById('dns-heading');
+      const vpnText = document.getElementById('vpn-text');
+      const dnsText = document.getElementById('dns-text');
       
-      if (!timerDisplay) return;
-
-      const startTime = getTimerStartTime();
-      if (!startTime) {
-        timerDisplay.textContent = '01:00';
-        timerDisplay.classList.remove('text-green-600', 'font-semibold');
-        if (startButton) startButton.style.display = 'inline-flex';
-        if (resetButton) resetButton.style.display = 'none';
-        return;
+      // Restore VPN heading
+      if (vpnHeading && vpnHeadingState.type !== 'checking') {
+        if (vpnHeadingState.type === 'connected') {
+          vpnHeading.textContent = `${t['status.vpn.connected'] || 'VPN Connected'} (${vpnHeadingState.successCount}/${vpnHeadingState.totalTests} Checks)`;
+          vpnHeading.className = 'text-xl font-semibold text-green-700';
+        } else if (vpnHeadingState.type === 'not_connected') {
+          vpnHeading.textContent = `${t['status.vpn.not_connected'] || 'VPN Not Connected'} (${vpnHeadingState.successCount}/${vpnHeadingState.totalTests} Checks)`;
+          vpnHeading.className = 'text-xl font-semibold text-red-700';
+        }
       }
-
-      const elapsed = Math.floor((Date.now() - startTime) / 1000);
-      const remaining = Math.max(0, TIMER_DURATION - elapsed);
-
-      if (remaining === 0) {
-        timerDisplay.textContent = '00:00';
-        const locale = getLocale();
-        const t = translations[locale] || translations.en;
-        timerDisplay.textContent = t['step4.timer.complete'] || 'Ready! Restart your browser and access PandaGPT.';
-        timerDisplay.classList.add('text-green-600', 'font-semibold');
-        if (startButton) startButton.style.display = 'none';
-        if (resetButton) resetButton.style.display = 'inline-flex';
-        if (timerLabel) timerLabel.style.display = 'none';
-        clearInterval(timerInterval);
-        timerInterval = null;
-      } else {
-        timerDisplay.textContent = formatTime(remaining);
-        timerDisplay.classList.remove('text-green-600', 'font-semibold');
-        if (startButton) startButton.style.display = 'none';
-        if (resetButton) resetButton.style.display = 'inline-flex';
-        if (timerLabel) timerLabel.style.display = 'inline';
+      
+      // Restore VPN text
+      if (vpnText && vpnHeadingState.type !== 'checking') {
+        if (vpnHeadingState.type === 'connected') {
+          vpnText.textContent = t['status.vpn.connected.text'] || 'Your VPN connection is active.';
+        } else if (vpnHeadingState.type === 'not_connected') {
+          vpnText.textContent = t['status.vpn.not_connected.text'] || 'VPN connection check failed. Please ensure you are connected to the VPN.';
+        }
+      }
+      
+      // Restore DNS heading
+      if (dnsHeading && dnsHeadingState.type !== 'checking') {
+        if (dnsHeadingState.type === 'partial') {
+          dnsHeading.textContent = `${t['status.dns.partial.message'] || 'DNS Partially Working'} (${dnsHeadingState.successCount}/${dnsHeadingState.totalTests} Checks)`;
+          dnsHeading.className = 'text-xl font-semibold text-amber-700';
+        } else if (dnsHeadingState.type === 'working') {
+          dnsHeading.textContent = `${t['status.dns.working.message'] || 'DNS Working'} (${dnsHeadingState.successCount}/${dnsHeadingState.totalTests} Checks)`;
+          dnsHeading.className = 'text-xl font-semibold text-green-700';
+        } else if (dnsHeadingState.type === 'issues') {
+          dnsHeading.textContent = `${t['status.dns.issues'] || 'DNS Issues Detected'} (${dnsHeadingState.successCount}/${dnsHeadingState.totalTests} Checks)`;
+          dnsHeading.className = 'text-xl font-semibold text-red-700';
+        }
+      }
+      
+      // Restore DNS text
+      if (dnsText && dnsHeadingState.type !== 'checking' && dnsHeadingState.type !== 'requires_vpn') {
+        if (dnsHeadingState.type === 'partial') {
+          dnsText.textContent = t['status.dns.partial.text'] || 'Only one domain is reachable. There is probably some maintenance ongoing, but you can still proceed using PandaGPT.';
+        } else if (dnsHeadingState.type === 'working') {
+          dnsText.textContent = t['status.dns.working.text'] || 'Your DNS configuration is working correctly.';
+        } else if (dnsHeadingState.type === 'issues') {
+          dnsText.textContent = t['status.dns.issues.text'] || 'DNS resolution check failed. Please check your DNS configuration.';
+        }
       }
     }
 
-    function startTimer() {
-      setTimerStartTime();
-      updateTimerDisplay();
-      if (timerInterval) clearInterval(timerInterval);
-      timerInterval = setInterval(updateTimerDisplay, 1000);
-    }
-
-    function resetTimer() {
-      clearTimerStartTime();
-      if (timerInterval) {
-        clearInterval(timerInterval);
-        timerInterval = null;
-      }
-      updateTimerDisplay();
-    }
-
-    // Expose timer functions globally for onclick handlers
-    window.startTimer = startTimer;
-    window.resetTimer = resetTimer;
 
     // Tab switching function
     function switchTab(tabName) {
@@ -391,6 +396,422 @@
     // Expose tab switching function globally
     window.switchTab = switchTab;
 
+    // VPN and DNS checking functions
+    let vpnConnected = false;
+    let dnsWorking = false;
+    let workingDomain = 'test.pandagpt.org'; // Default domain for step 4
+    
+    // Track current heading states for language switching
+    let vpnHeadingState = { type: 'checking', successCount: 0, totalTests: 2 };
+    let dnsHeadingState = { type: 'checking', successCount: 0, totalTests: 2 };
+
+    // Helper function to set DNS "requires VPN" state
+    function setDNSRequiresVPNState() {
+      const dnsIcon = document.getElementById('dns-icon');
+      const dnsIconChecking = document.getElementById('dns-icon-checking');
+      const dnsIconSuccess = document.getElementById('dns-icon-success');
+      const dnsIconPartial = document.getElementById('dns-icon-partial');
+      const dnsIconError = document.getElementById('dns-icon-error');
+      const dnsHeading = document.getElementById('dns-heading');
+      const dnsText = document.getElementById('dns-text');
+      const locale = getLocale();
+      const t = translations[locale] || translations.en;
+      
+      dnsHeadingState = { type: 'requires_vpn', successCount: 0, totalTests: 2 };
+      
+      if (dnsIcon) {
+        dnsIcon.style.background = '#71717a';
+      }
+      if (dnsIconChecking) dnsIconChecking.style.display = 'block';
+      if (dnsIconSuccess) dnsIconSuccess.style.display = 'none';
+      if (dnsIconPartial) dnsIconPartial.style.display = 'none';
+      if (dnsIconError) dnsIconError.style.display = 'none';
+      if (dnsHeading) {
+        dnsHeading.textContent = t['status.dns.requires_vpn'] || 'DNS Check Requires VPN';
+        dnsHeading.className = 'text-xl font-semibold text-zinc-500';
+      }
+      if (dnsText) {
+        dnsText.textContent = t['status.dns.requires_vpn.text'] || 'Please connect to the VPN first to check DNS resolution.';
+      }
+    }
+
+    // Unified function to check connectivity to targets (IPs or domains)
+    async function checkConnectivity(targets, useNoCors = false) {
+      let successCount = 0;
+      const totalTests = targets.length;
+      const successfulTargets = [];
+      
+      for (const target of targets) {
+        try {
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 3000);
+          
+          const fetchOptions = {
+            method: 'GET',
+            signal: controller.signal,
+            cache: 'no-cache'
+          };
+          
+          if (useNoCors) {
+            fetchOptions.mode = 'no-cors';
+          }
+          
+          const response = await fetch(target, fetchOptions);
+          clearTimeout(timeoutId);
+          
+          if (useNoCors) {
+            // For no-cors mode, if we get here without error, it's a success
+            // (we can't check response status in no-cors mode)
+            successCount++;
+            successfulTargets.push(target);
+          } else {
+            // For normal mode, only count as success if we actually got a response object
+            // Even error responses (4xx, 5xx) mean DNS resolved successfully
+            // The key is that we got a Response object, not an exception
+            if (response instanceof Response) {
+              successCount++;
+              successfulTargets.push(target);
+            }
+          }
+        } catch (error) {
+          // Any error (network error, blocked request, timeout, CORS, etc.) means failure
+          // Don't count as success - we need an actual Response object to confirm DNS resolution
+        }
+      }
+      
+      return { successCount, totalTests, successfulTargets };
+    }
+
+    async function checkVPNConnection() {
+      const vpnIPs = ['http://10.0.2.227', 'http://10.0.2.188'];
+      const vpnIcon = document.getElementById('vpn-icon');
+      const vpnIconChecking = document.getElementById('vpn-icon-checking');
+      const vpnIconSuccess = document.getElementById('vpn-icon-success');
+      const vpnIconError = document.getElementById('vpn-icon-error');
+      const vpnHeading = document.getElementById('vpn-heading');
+      const vpnText = document.getElementById('vpn-text');
+      const vpnTroubleshooting = document.getElementById('vpn-troubleshooting');
+      const vpnAdvancedTroubleshooting = document.getElementById('vpn-advanced-troubleshooting');
+      const locale = getLocale();
+      const t = translations[locale] || translations.en;
+      
+      // Set checking state
+      if (vpnHeading) {
+        vpnHeading.textContent = t['status.checking_vpn'] || 'Checking VPN connection...';
+        vpnHeading.className = 'text-xl font-semibold text-zinc-500';
+      }
+      if (vpnText) {
+        vpnText.textContent = t['status.checking_vpn'] || 'Checking VPN connection...';
+      }
+      if (vpnIcon) {
+        vpnIcon.style.background = '#71717a';
+      }
+      if (vpnIconChecking) vpnIconChecking.style.display = 'block';
+      if (vpnIconSuccess) vpnIconSuccess.style.display = 'none';
+      if (vpnIconError) vpnIconError.style.display = 'none';
+      if (vpnTroubleshooting) {
+        vpnTroubleshooting.style.display = 'none';
+      }
+      if (vpnAdvancedTroubleshooting) {
+        vpnAdvancedTroubleshooting.style.display = 'none';
+      }
+      
+      // Check connectivity
+      const { successCount, totalTests, successfulTargets } = await checkConnectivity(vpnIPs, true);
+      
+      if (successCount > 0) {
+        // VPN is connected - show success state
+        vpnHeadingState = { type: 'connected', successCount, totalTests };
+        if (vpnIcon) {
+          vpnIcon.style.background = '#16a34a';
+        }
+        if (vpnIconChecking) vpnIconChecking.style.display = 'none';
+        if (vpnIconSuccess) vpnIconSuccess.style.display = 'block';
+        if (vpnIconError) vpnIconError.style.display = 'none';
+        if (vpnHeading) {
+          vpnHeading.textContent = `${t['status.vpn.connected'] || 'VPN Connected'} (${successCount}/${totalTests} Checks)`;
+          vpnHeading.className = 'text-xl font-semibold text-green-700';
+        }
+        if (vpnText) {
+          vpnText.textContent = t['status.vpn.connected.text'] || 'Your VPN connection is active.';
+        }
+        if (vpnTroubleshooting) {
+          vpnTroubleshooting.style.display = 'none';
+        }
+        if (vpnAdvancedTroubleshooting) {
+          vpnAdvancedTroubleshooting.style.display = 'none';
+        }
+        vpnConnected = true;
+        return true;
+      }
+      
+      // VPN is not connected - show error state
+      vpnHeadingState = { type: 'not_connected', successCount, totalTests };
+      if (vpnIcon) {
+        vpnIcon.style.background = '#dc2626';
+      }
+      if (vpnIconChecking) vpnIconChecking.style.display = 'none';
+      if (vpnIconSuccess) vpnIconSuccess.style.display = 'none';
+      if (vpnIconError) vpnIconError.style.display = 'block';
+      if (vpnHeading) {
+        vpnHeading.textContent = `${t['status.vpn.not_connected'] || 'VPN Not Connected'} (${successCount}/${totalTests} Checks)`;
+        vpnHeading.className = 'text-xl font-semibold text-red-700';
+      }
+      if (vpnText) {
+        vpnText.textContent = t['status.vpn.not_connected.text'] || 'VPN connection check failed. Please ensure you are connected to the VPN.';
+      }
+      if (vpnTroubleshooting) {
+        vpnTroubleshooting.style.display = 'block';
+      }
+      if (vpnAdvancedTroubleshooting) {
+        vpnAdvancedTroubleshooting.style.display = 'block';
+      }
+      vpnConnected = false;
+      return false;
+    }
+
+    async function checkDNSResolution() {
+      const domains = ['http://test.pandagpt.org:3141/documents/', 'http://test01.pandagpt.org:3141/documents/'];
+      const dnsIcon = document.getElementById('dns-icon');
+      const dnsIconChecking = document.getElementById('dns-icon-checking');
+      const dnsIconSuccess = document.getElementById('dns-icon-success');
+      const dnsIconPartial = document.getElementById('dns-icon-partial');
+      const dnsIconError = document.getElementById('dns-icon-error');
+      const dnsHeading = document.getElementById('dns-heading');
+      const dnsText = document.getElementById('dns-text');
+      const dnsTroubleshooting = document.getElementById('dns-troubleshooting');
+      const advancedTroubleshooting = document.getElementById('advanced-troubleshooting');
+      const locale = getLocale();
+      const t = translations[locale] || translations.en;
+      
+      // Set checking state
+      if (dnsHeading) {
+        dnsHeading.textContent = t['status.checking_dns'] || 'Checking DNS resolution...';
+        dnsHeading.className = 'text-xl font-semibold text-zinc-500';
+      }
+      if (dnsText) {
+        dnsText.textContent = t['status.checking_dns'] || 'Checking DNS resolution...';
+      }
+      if (dnsIcon) {
+        dnsIcon.style.background = '#71717a';
+      }
+      if (dnsIconChecking) dnsIconChecking.style.display = 'block';
+      if (dnsIconSuccess) dnsIconSuccess.style.display = 'none';
+      if (dnsIconPartial) dnsIconPartial.style.display = 'none';
+      if (dnsIconError) dnsIconError.style.display = 'none';
+      if (dnsTroubleshooting) {
+        dnsTroubleshooting.style.display = 'none';
+      }
+      if (advancedTroubleshooting) {
+        advancedTroubleshooting.style.display = 'none';
+      }
+      
+      // Check connectivity
+      const { successCount, totalTests, successfulTargets } = await checkConnectivity(domains, false);
+      
+      // Extract domain names from successful targets
+      if (successCount === 1) {
+        // Only one domain works - use that one
+        // Format: http://test.pandagpt.org:3141/documents/ -> test.pandagpt.org
+        const firstSuccess = successfulTargets[0];
+        const urlMatch = firstSuccess.match(/https?:\/\/([^:\/]+)/);
+        if (urlMatch && urlMatch[1]) {
+          workingDomain = urlMatch[1];
+        }
+      } else if (successCount > 1) {
+        // Both domains work - use default
+        workingDomain = 'test.pandagpt.org';
+      } else {
+        // No domains work - reset to default
+        workingDomain = 'test.pandagpt.org';
+      }
+      
+      if (successCount > 0) {
+        if (successCount === 1) {
+          // Partial success - show yellow
+          dnsHeadingState = { type: 'partial', successCount, totalTests };
+          if (dnsIcon) {
+            dnsIcon.style.background = '#eab308';
+          }
+          if (dnsIconChecking) dnsIconChecking.style.display = 'none';
+          if (dnsIconSuccess) dnsIconSuccess.style.display = 'none';
+          if (dnsIconPartial) dnsIconPartial.style.display = 'block';
+          if (dnsIconError) dnsIconError.style.display = 'none';
+          if (dnsHeading) {
+            dnsHeading.textContent = `${t['status.dns.partial.message'] || 'DNS Partially Working'} (${successCount}/${totalTests} Checks)`;
+            dnsHeading.className = 'text-xl font-semibold text-amber-700';
+          }
+          if (dnsText) {
+            dnsText.textContent = t['status.dns.partial.text'] || 'Only one domain is reachable. There is probably some maintenance ongoing, but you can still proceed using PandaGPT.';
+          }
+          dnsWorking = true; // Partial success still counts as working
+        } else {
+          // Full success - show green
+          dnsHeadingState = { type: 'working', successCount, totalTests };
+          if (dnsIcon) {
+            dnsIcon.style.background = '#16a34a';
+          }
+          if (dnsIconChecking) dnsIconChecking.style.display = 'none';
+          if (dnsIconSuccess) dnsIconSuccess.style.display = 'block';
+          if (dnsIconPartial) dnsIconPartial.style.display = 'none';
+          if (dnsIconError) dnsIconError.style.display = 'none';
+          if (dnsHeading) {
+            dnsHeading.textContent = `${t['status.dns.working.message'] || 'DNS Working'} (${successCount}/${totalTests} Checks)`;
+            dnsHeading.className = 'text-xl font-semibold text-green-700';
+          }
+          if (dnsText) {
+            dnsText.textContent = t['status.dns.working.text'] || 'Your DNS configuration is working correctly.';
+          }
+          if (dnsTroubleshooting) {
+            dnsTroubleshooting.style.display = 'none';
+          }
+          if (advancedTroubleshooting) {
+            advancedTroubleshooting.style.display = 'none';
+          }
+          dnsWorking = true;
+        }
+        // Hide troubleshooting for partial success too (it's still working)
+        if (dnsTroubleshooting && successCount === 1) {
+          dnsTroubleshooting.style.display = 'none';
+        }
+        if (advancedTroubleshooting && successCount === 1) {
+          advancedTroubleshooting.style.display = 'none';
+        }
+        return true;
+      }
+      
+      // DNS has issues - show error state
+      dnsHeadingState = { type: 'issues', successCount, totalTests };
+      if (dnsIcon) {
+        dnsIcon.style.background = '#dc2626';
+      }
+      if (dnsIconChecking) dnsIconChecking.style.display = 'none';
+      if (dnsIconSuccess) dnsIconSuccess.style.display = 'none';
+      if (dnsIconPartial) dnsIconPartial.style.display = 'none';
+      if (dnsIconError) dnsIconError.style.display = 'block';
+      if (dnsHeading) {
+        dnsHeading.textContent = `${t['status.dns.issues'] || 'DNS Issues Detected'} (${successCount}/${totalTests} Checks)`;
+        dnsHeading.className = 'text-xl font-semibold text-red-700';
+      }
+      if (dnsText) {
+        dnsText.textContent = t['status.dns.issues.text'] || 'DNS resolution check failed. Please check your DNS configuration.';
+      }
+      if (dnsTroubleshooting) {
+        dnsTroubleshooting.style.display = 'block';
+      }
+      if (advancedTroubleshooting) {
+        advancedTroubleshooting.style.display = 'block';
+      }
+      dnsWorking = false;
+      return false;
+    }
+
+    async function runConnectionChecks() {
+      const vpnResult = await checkVPNConnection();
+      
+      // Always show DNS checker and check DNS
+      const dnsChecker = document.getElementById('dns-checker');
+      if (dnsChecker) {
+        dnsChecker.style.display = 'block';
+      }
+      
+      // Only check DNS if VPN is connected
+      if (vpnResult) {
+        await checkDNSResolution();
+      } else {
+        // Show hint that DNS requires VPN if VPN is not connected
+        setDNSRequiresVPNState();
+      }
+      
+      // Update test.pandagpt.org link visibility
+      updateTestLinkVisibility();
+    }
+
+    function updateTestLinkVisibility() {
+      const step4Success = document.getElementById('step4-success');
+      const step4Failure = document.getElementById('step4-failure');
+      const testPandagptLink = document.getElementById('test-pandagpt-link');
+      const testPandagptLinkSpan = testPandagptLink ? testPandagptLink.querySelector('span') : null;
+      
+      if (vpnConnected && dnsWorking) {
+        // Both tests successful - show link
+        if (step4Success) {
+          step4Success.style.display = 'block';
+        }
+        if (step4Failure) {
+          step4Failure.style.display = 'none';
+        }
+        // Update the link to use the working domain
+        if (testPandagptLink) {
+          testPandagptLink.href = `https://${workingDomain}`;
+        }
+        if (testPandagptLinkSpan) {
+          testPandagptLinkSpan.textContent = `https://${workingDomain}`;
+        }
+      } else {
+        // Tests not successful - show failure message
+        if (step4Success) {
+          step4Success.style.display = 'none';
+        }
+        if (step4Failure) {
+          step4Failure.style.display = 'block';
+        }
+      }
+    }
+
+    // Reload function for VPN test
+    async function reloadVPNTest() {
+      const vpnResult = await checkVPNConnection();
+      // If VPN is now connected, check DNS
+      if (vpnResult) {
+        await checkDNSResolution();
+      } else {
+        // Show hint that DNS requires VPN
+        const dnsIcon = document.getElementById('dns-icon');
+        const dnsIconChecking = document.getElementById('dns-icon-checking');
+        const dnsIconSuccess = document.getElementById('dns-icon-success');
+        const dnsIconPartial = document.getElementById('dns-icon-partial');
+        const dnsIconError = document.getElementById('dns-icon-error');
+        const dnsHeading = document.getElementById('dns-heading');
+        const dnsText = document.getElementById('dns-text');
+        const locale = getLocale();
+        const t = translations[locale] || translations.en;
+        
+        if (dnsIcon) {
+          dnsIcon.style.background = '#71717a';
+        }
+        if (dnsIconChecking) dnsIconChecking.style.display = 'block';
+        if (dnsIconSuccess) dnsIconSuccess.style.display = 'none';
+        if (dnsIconPartial) dnsIconPartial.style.display = 'none';
+        if (dnsIconError) dnsIconError.style.display = 'none';
+        dnsHeadingState = { type: 'requires_vpn', successCount: 0, totalTests: 2 };
+        if (dnsHeading) {
+          dnsHeading.textContent = t['status.dns.requires_vpn'] || 'DNS Check Requires VPN';
+          dnsHeading.className = 'text-xl font-semibold text-zinc-500';
+        }
+        if (dnsText) {
+          dnsText.textContent = t['status.dns.requires_vpn.text'] || 'Please connect to the VPN first to check DNS resolution.';
+        }
+      }
+      updateTestLinkVisibility();
+    }
+
+    // Reload function for DNS test
+    async function reloadDNSTest() {
+      // Only check DNS if VPN is connected
+      if (vpnConnected) {
+        await checkDNSResolution();
+      } else {
+        // Show hint that DNS requires VPN
+        setDNSRequiresVPNState();
+      }
+      updateTestLinkVisibility();
+    }
+
+    // Expose reload functions globally
+    window.reloadVPNTest = reloadVPNTest;
+    window.reloadDNSTest = reloadDNSTest;
+
     // Initialize on page load
     document.addEventListener('DOMContentLoaded', () => {
       const locale = getLocale();
@@ -398,18 +819,8 @@
       htmlRoot.lang = locale;
       updateTranslations();
       
-      // Initialize timer
-      const startTime = getTimerStartTime();
-      if (startTime) {
-        const elapsed = Math.floor((Date.now() - startTime) / 1000);
-        if (elapsed < TIMER_DURATION) {
-          startTimer();
-        } else {
-          resetTimer();
-        }
-      } else {
-        updateTimerDisplay();
-      }
+      // Run connection checks
+      runConnectionChecks();
 
       // Initialize DNS tabs (macOS tab is active by default)
       switchTab('macos');
@@ -465,6 +876,7 @@
           PandaGPT
         </a>
         <nav class="flex gap-4 md:gap-8 text-sm font-medium items-center">
+          <a href="setup.html" class="text-zinc-900 hover:text-blue-600 transition-colors" data-i18n="nav.setup">Setup</a>
           <a href="#" class="text-zinc-400 pointer-events-none cursor-not-allowed" data-i18n="nav.chat">Chat</a>
           <a href="#" class="text-zinc-400 pointer-events-none cursor-not-allowed" data-i18n="nav.database">Database</a>
           <div class="flex space-x-2 font-medium">
@@ -564,7 +976,7 @@
         </div>
 
         <!-- Step 3 -->
-        <div class="pb-12 border-b border-zinc-200">
+        <div id="step3" class="pb-12 border-b border-zinc-200">
           <div class="flex items-start gap-6">
             <div class="step-number">3</div>
             <div class="flex-1">
@@ -576,71 +988,105 @@
           </div>
         </div>
 
-        <!-- Step 4 -->
-        <div class="pb-12 border-b border-zinc-200">
+        <!-- VPN Connection Checker -->
+        <div id="vpn-checker" class="pb-12 border-b border-zinc-200">
           <div class="flex items-start gap-6">
-            <div class="step-number">4</div>
+            <div id="vpn-icon" class="step-number" style="background: #71717a; color: white;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16" id="vpn-icon-checking">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286m1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94"/>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16" style="display: none;" id="vpn-icon-success">
+                <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0"/>
+                <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z"/>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16" style="display: none;" id="vpn-icon-error">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+              </svg>
+            </div>
             <div class="flex-1">
-              <h2 class="text-xl font-semibold mb-4 text-zinc-900" data-i18n="step4.title">Access PandaGPT</h2>
-              <p class="text-zinc-600 mb-4 leading-relaxed" data-i18n="step4.text">
-                Once connected, wait approximately 1 minute for routing and DNS settings to finish setting up before accessing the PandaGPT application.
-              </p>
-              <p class="text-sm text-zinc-500 mb-6 leading-relaxed" data-i18n="step4.note">
-                Note: This waiting period is only necessary after first connecting to the VPN. Subsequent connections do not require waiting.
-              </p>
-              
-              <!-- Timer -->
-              <div class="mb-6 p-4 bg-zinc-50 border border-zinc-200">
-                <div class="flex items-center gap-4 flex-wrap">
-                  <span id="timer-label" class="text-base font-medium text-zinc-700" data-i18n="step4.timer.label">Wait timer:</span>
-                  <span id="timer-display" class="text-base font-mono font-semibold text-zinc-900">01:00</span>
+              <div class="flex items-center justify-between mb-4">
+                <h2 id="vpn-heading" class="text-xl font-semibold text-zinc-500" data-i18n="status.checking_vpn">Checking VPN connection...</h2>
                   <button 
-                    id="timer-start-btn"
-                    onclick="startTimer()"
-                    class="inline-flex items-center gap-2 bg-zinc-900 hover:bg-zinc-700 text-white font-medium py-2 px-4 transition-colors text-base"
-                    data-i18n="step4.timer.start"
-                  >
-                    Start Timer
+                  onclick="reloadVPNTest()"
+                  class="inline-flex items-center justify-center bg-zinc-900 hover:bg-zinc-700 text-white font-medium py-2 px-2 transition-colors text-sm"
+                  title="Reload"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"/>
+                    <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"/>
+                  </svg>
                   </button>
-                  <button 
-                    id="timer-reset-btn"
-                    onclick="resetTimer()"
-                    class="inline-flex items-center gap-2 bg-zinc-600 hover:bg-zinc-500 text-white font-medium py-2 px-4 transition-colors text-base"
-                    style="display: none;"
-                    data-i18n="step4.timer.reset"
-                  >
-                    Reset Timer
-                  </button>
-                </div>
               </div>
-
-              <p class="text-zinc-600 mb-3 leading-relaxed" data-i18n="step4.browser">
-                After waiting, completely quit and restart your web browser.
-              </p>
-              <p class="text-sm text-zinc-500 mb-4 leading-relaxed">
-                <span data-i18n="step4.browser.macos">On macOS:</span> <span data-i18n="step4.browser.macos.text">Make sure to quit the browser application through the Dock (right-click the browser icon and select "Quit") rather than just closing the window.</span>
-              </p>
-
-              <p class="text-zinc-600 leading-relaxed"><span data-i18n="step4.text2">Then open your web browser and navigate to:</span> <a href="https://test.pandagpt.org" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-blue-600 hover:text-blue-700 underline underline-offset-2 font-medium">
-                <span>https://test.pandagpt.org</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
-                  <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
-                </svg>
-              </a></p>
+              <p id="vpn-text" class="text-zinc-600 leading-relaxed" data-i18n="status.checking_vpn">Checking VPN connection...</p>
             </div>
           </div>
-        </div>
-
-        <!-- Troubleshooting -->
-        <div class="space-y-6">
-          <!-- Basic Troubleshooting Box -->
-          <div class="bg-amber-50/30 border-l-2 border-amber-400 py-4 px-4">
-            <h2 class="text-base font-semibold mb-4 text-amber-900" data-i18n="troubleshooting.title">Troubleshooting</h2>
+          
+          <!-- VPN Troubleshooting Box (shown when VPN is not connected) -->
+          <div id="vpn-troubleshooting" class="mt-6 bg-amber-50/30 border-l-2 border-amber-400 py-4 px-4" style="display: none;">
+            <h2 class="text-base font-semibold mb-4 text-amber-900" data-i18n="troubleshooting.vpn.title">VPN Connection Troubleshooting</h2>
             <div class="space-y-3 text-sm text-zinc-600 leading-relaxed">
               <p>
                 <span class="text-amber-900 font-medium" data-i18n="troubleshooting.q1">VPN won't connect?</span> <span data-i18n="troubleshooting.a1">Make sure you have an active internet connection and no firewall is blocking AWS Client VPN. Try switching between UDP and TCP profiles – some networks work better with TCP.</span>
               </p>
+            </div>
+          </div>
+          
+          <!-- Advanced VPN Troubleshooting (separate box) -->
+          <div id="vpn-advanced-troubleshooting" class="mt-6 bg-amber-50/30 border-l-2 border-amber-400 py-4 px-4" style="display: none;">
+            <h2 class="text-base font-semibold mb-4 text-amber-900" data-i18n="troubleshooting.vpn.expert.title">Advanced VPN Troubleshooting</h2>
+            <div class="space-y-3 text-sm text-zinc-600 leading-relaxed">
+              <p>
+                <span data-i18n="troubleshooting.vpn.expert.text">When troubleshooting VPN connection issues, first verify that a route to the</span> <code class="bg-amber-50 px-1.5 py-0.5 text-xs font-mono">10.0.0.0/16</code> <span data-i18n="troubleshooting.vpn.expert.text2">subnet exists. The VPN should establish routes to</span> <code class="bg-amber-50 px-1.5 py-0.5 text-xs font-mono">10.0.0.0/16</code> <span data-i18n="troubleshooting.vpn.expert.text3">when connected. Check your routing table to confirm the VPN routes are active.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- DNS Connection Checker -->
+        <div id="dns-checker" class="pb-12 border-b border-zinc-200">
+          <div class="flex items-start gap-6">
+            <div id="dns-icon" class="step-number" style="background: #71717a; color: white;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16" id="dns-icon-checking">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286m1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94"/>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16" style="display: none;" id="dns-icon-success">
+                <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0"/>
+                <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z"/>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16" style="display: none;" id="dns-icon-partial">
+                <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0"/>
+                <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z"/>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16" style="display: none;" id="dns-icon-error">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center justify-between mb-4">
+                <h2 id="dns-heading" class="text-xl font-semibold text-zinc-500" data-i18n="status.checking_dns">Checking DNS resolution...</h2>
+                  <button 
+                  onclick="reloadDNSTest()"
+                  class="inline-flex items-center justify-center bg-zinc-900 hover:bg-zinc-700 text-white font-medium py-2 px-2 transition-colors text-sm"
+                  title="Reload"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"/>
+                    <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"/>
+                  </svg>
+                  </button>
+              </div>
+              <p id="dns-text" class="text-zinc-600 leading-relaxed" data-i18n="status.checking_dns">Checking DNS resolution...</p>
+                </div>
+              </div>
+
+          <!-- DNS Troubleshooting Box (shown when DNS is not working) -->
+          <div id="dns-troubleshooting" class="mt-6 bg-amber-50/30 border-l-2 border-amber-400 py-4 px-4" style="display: none;">
+            <h2 class="text-base font-semibold mb-4 text-amber-900" data-i18n="troubleshooting.dns.title">DNS Troubleshooting</h2>
+            <div class="space-y-3 text-sm text-zinc-600 leading-relaxed">
               <div>
                 <p class="mb-2">
                   <span class="text-amber-900 font-medium" data-i18n="troubleshooting.q2">Can't access test.pandagpt.org?</span>
@@ -684,7 +1130,7 @@
                   >
                     Linux
                   </button>
-                </div>
+            </div>
 
                 <!-- Tab Contents -->
                 <!-- macOS Tab -->
@@ -699,7 +1145,7 @@
                     <li><span data-i18n="troubleshooting.dns.macos.step7">Enter</span> <code class="bg-amber-50 px-1.5 py-0.5 text-xs font-mono">10.0.0.2</code> <span data-i18n="troubleshooting.dns.macos.step8">and click "OK" or "Apply"</span></li>
                     <li data-i18n="troubleshooting.dns.macos.step9">Make sure this DNS server is at the top of the list (drag it if needed)</li>
                   </ol>
-                </div>
+          </div>
 
                 <!-- Windows Tab -->
                 <div id="dns-tab-windows" class="dns-tab-content" style="display: none;">
@@ -714,51 +1160,69 @@
                     <li data-i18n="troubleshooting.dns.windows.step8">Select "Use the following DNS server addresses"</li>
                     <li><span data-i18n="troubleshooting.dns.windows.step9">Enter</span> <code class="bg-amber-50 px-1.5 py-0.5 text-xs font-mono">10.0.0.2</code> <span data-i18n="troubleshooting.dns.windows.step10">in the "Preferred DNS server" field</span></li>
                     <li data-i18n="troubleshooting.dns.windows.step11">Click "OK" on both dialogs</li>
-                    <li data-i18n="troubleshooting.dns.windows.step12">Restart the AWS VPN Client as administrator (right-click the AWS VPN Client icon in the system tray and select "Run as administrator", or close and reopen the application as administrator)</li>
                   </ol>
-                  <p class="mt-3 text-xs text-amber-700 leading-relaxed" data-i18n="troubleshooting.dns.windows.note">
+                  <p class="mt-3 text-sm text-amber-700 leading-relaxed" data-i18n="troubleshooting.dns.windows.note">
                     Important: Make sure you are modifying the VPN adapter, not your regular Wi-Fi or Ethernet adapter.
                   </p>
-                </div>
+        </div>
 
                 <!-- Linux Tab -->
                 <div id="dns-tab-linux" class="dns-tab-content" style="display: none;">
                   <p class="text-sm text-zinc-600 leading-relaxed" data-i18n="troubleshooting.dns.linux.text">
                     You probably know better how to do this ;)
-                  </p>
-                </div>
+            </p>
+          </div>
               </div>
             </div>
           </div>
-
-          <!-- Advanced Troubleshooting Box -->
-          <div class="bg-amber-50/30 border-l-2 border-amber-400 py-4 px-4">
-            <h3 class="text-base font-semibold mb-4 text-amber-900" data-i18n="troubleshooting.expert.title">Advanced Troubleshooting</h3>
-            <p class="text-sm text-zinc-600 leading-relaxed mb-3">
-              <span data-i18n="troubleshooting.expert.text">When connected to the split tunnel, the</span> <code class="bg-amber-50 px-1.5 py-0.5 text-xs font-mono">test.pandagpt.org</code> <span data-i18n="troubleshooting.expert.text2">domain should be resolved using a DNS server inside the subnet where the VPN connects. The DNS server IP is</span> <code class="bg-amber-50 px-1.5 py-0.5 text-xs font-mono">10.0.0.2</code> <span data-i18n="troubleshooting.expert.text3">and it resolves the domain to an IP address in the</span> <code class="bg-amber-50 px-1.5 py-0.5 text-xs font-mono">10.0.0.0/16</code> <span data-i18n="troubleshooting.expert.text4">subnet. Multiple IPs in that subnet are valid results.</span>
-            </p>
-            <div class="mt-4">
-              <p class="text-sm text-zinc-600 leading-relaxed mb-3">
+          
+          <!-- Advanced Troubleshooting (separate box) -->
+          <div id="advanced-troubleshooting" class="mt-6 bg-amber-50/30 border-l-2 border-amber-400 py-4 px-4" style="display: none;">
+            <h2 class="text-base font-semibold mb-4 text-amber-900" data-i18n="troubleshooting.expert.title">Advanced Troubleshooting</h2>
+            <div class="space-y-3 text-sm text-zinc-600 leading-relaxed">
+              <p>
+                <span data-i18n="troubleshooting.expert.text">When connected to the split tunnel, the</span> <code class="bg-amber-50 px-1.5 py-0.5 text-xs font-mono">test.pandagpt.org</code> <span data-i18n="troubleshooting.expert.text2">domain should be resolved using a DNS server inside the subnet where the VPN connects. The DNS server IP is</span> <code class="bg-amber-50 px-1.5 py-0.5 text-xs font-mono">10.0.0.2</code> <span data-i18n="troubleshooting.expert.text3">and it resolves the domain to an IP address in the</span> <code class="bg-amber-50 px-1.5 py-0.5 text-xs font-mono">10.0.0.0/16</code> <span data-i18n="troubleshooting.expert.text4">subnet. Multiple IPs in that subnet are valid results.</span>
+              </p>
+              <p>
                 <span data-i18n="troubleshooting.expert.debug.text">When troubleshooting DNS issues, first verify that a route to the</span> <code class="bg-amber-50 px-1.5 py-0.5 text-xs font-mono">10.0.0.0/16</code> <span data-i18n="troubleshooting.expert.debug.text2">subnet exists over the VPN Client. Then check if</span> <code class="bg-amber-50 px-1.5 py-0.5 text-xs font-mono">test.pandagpt.org</code> <span data-i18n="troubleshooting.expert.debug.text3">can be resolved using DNS server</span> <code class="bg-amber-50 px-1.5 py-0.5 text-xs font-mono">10.0.0.2</code> <span data-i18n="troubleshooting.expert.debug.text4">to an IP address in the</span> <code class="bg-amber-50 px-1.5 py-0.5 text-xs font-mono">10.0.0.0/16</code> <span data-i18n="troubleshooting.expert.debug.text5">subnet.</span>
               </p>
-              <p class="text-sm text-zinc-600 leading-relaxed mb-3">
+              <p>
                 <span class="text-amber-900 font-medium" data-i18n="troubleshooting.expert.browser.title">DNS works but browser won't load?</span> <span data-i18n="troubleshooting.expert.browser.text">If DNS resolution works correctly but your browser still won't load the site, try flushing your OS DNS cache, clearing your browser cache, switching to a different browser, or using an incognito/private browsing window.</span>
               </p>
-              <p class="text-sm text-zinc-600 leading-relaxed mb-2">
-                <span class="text-amber-900 font-medium" data-i18n="troubleshooting.expert.alternative.title">Still not working?</span> <span data-i18n="troubleshooting.expert.alternative.text">If none of the cache clearing or flushing works, and you have verified that DNS resolution works correctly, try visiting</span> <a id="alternative-domain" href="#" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700 underline underline-offset-2 font-medium"></a> <span id="alternative-visit" data-i18n="troubleshooting.expert.alternative.visit"></span><span id="alternative-or" style="display: none;"> or </span><a id="alternative-domain-2" href="#" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700 underline underline-offset-2 font-medium" style="display: none;"></a>.
+              <p>
+                <span class="text-amber-900 font-medium" data-i18n="troubleshooting.expert.alternative.title">Still not working?</span> <span data-i18n="troubleshooting.expert.alternative.text">If none of the cache clearing or flushing works, and you have verified that DNS resolution works correctly, try visiting</span> <a id="alternative-domain" href="#" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700 underline underline-offset-2 font-medium"></a><span id="alternative-or" style="display: none;"> or </span><a id="alternative-domain-2" href="#" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700 underline underline-offset-2 font-medium" style="display: none;"></a>.
               </p>
-              <p class="text-sm text-zinc-600 leading-relaxed">
-                <span data-i18n="troubleshooting.expert.alternative.warning">Note: Only visit these alternative domains after verifying DNS resolution works to prevent DNS cache poisoning.</span>
+              <p>
+                <span class="text-amber-700" data-i18n="troubleshooting.expert.alternative.warning">Note: Only visit these alternative domains after verifying DNS resolution works to prevent DNS cache poisoning.</span>
               </p>
             </div>
           </div>
         </div>
-      </div>
+        </div>
 
-      <div class="mt-12">
-        <p class="text-zinc-600 text-sm">
-          <span data-i18n="help.text">Need help? Contact us at</span> <a href="mailto:panda_admin@interface-eu.org" class="text-blue-600 hover:text-blue-700 hover:underline underline-offset-4">panda_admin@interface-eu.org</a>
-        </p>
+        <!-- Step 4 -->
+        <div id="step4" class="pt-12 pb-12 border-b border-zinc-200">
+          <div class="flex items-start gap-6">
+            <div class="step-number">4</div>
+            <div class="flex-1">
+              <h2 class="text-xl font-semibold mb-4 text-zinc-900" data-i18n="step4.title">Access PandaGPT</h2>
+              <p id="step4-success" class="text-zinc-600 leading-relaxed" style="display: none;"><span data-i18n="step4.text2">Open your web browser and navigate to:</span> <a id="test-pandagpt-link" href="https://test.pandagpt.org" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-blue-600 hover:text-blue-700 underline underline-offset-2 font-medium">
+                <span>https://test.pandagpt.org</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+                  <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
+                </svg>
+              </a></p>
+              <p id="step4-failure" class="text-zinc-600 leading-relaxed" data-i18n="step4.failure">Please fix the VPN and DNS connection issues above to access PandaGPT.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-12">
+          <p class="text-zinc-600 text-sm">
+            <span data-i18n="help.text">Need help? Contact us at</span> <a href="mailto:panda_admin@interface-eu.org" class="text-blue-600 hover:text-blue-700 hover:underline underline-offset-4">panda_admin@interface-eu.org</a>
+          </p>
+        </div>
       </div>
       </div>
     </div>
